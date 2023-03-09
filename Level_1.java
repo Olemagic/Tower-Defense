@@ -7,61 +7,63 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 0.1
  */
 public class Level_1 extends Level {
-    private Path paths[] = new Path[30];
+    private Path paths[] = new Path[31];
+    private Monster monster = new Monster();
     
     public Level_1() {
         generateLevel();
+        this.addObject(monster, 50, 450);
     }
     
     public void generateLevel() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             paths[i] = new Path();
-            this.addObject(paths[i], i+1, 4);
+            this.addObject(paths[i], (i)*100+50, 450);
         }
         
-        for (int i = 3; i < 5; i++) {
+        for (int i = 4; i < 6; i++) {
             paths[i] = new Path();
-            this.addObject(paths[i], 3, i+2);
+            this.addObject(paths[i], 350, (i+1)*100+50);
         }
         
-        for (int i = 5; i < 7; i++) {
+        for (int i = 6; i < 8; i++) {
             paths[i] = new Path();
-            this.addObject(paths[i], i-1, 6);
+            this.addObject(paths[i], (i-2)*100+50, 650);
         }
         
-        for (int i = 7; i < 11; i++) {
+        for (int i = 8; i < 12; i++) {
             paths[i] = new Path();
-            this.addObject(paths[i], 5, 12-i);
+            this.addObject(paths[i], 550, (13-i)*100+50);
         }
         
-        for (int i = 11; i < 14; i++) {
+        for (int i = 12; i < 15; i++) {
             paths[i] = new Path();
-            this.addObject(paths[i], i-5, 2);
+            this.addObject(paths[i], (i-6)*100+50, 250);
         }
         
-        for (int i = 14; i < 17; i++) {
+        for (int i = 15; i < 18; i++) {
             paths[i] = new Path();
-            this.addObject(paths[i], 8, i-11);
+            this.addObject(paths[i], 850, (i-12)*100+50);
         }
         
-        for (int i = 17; i < 23; i++) {
+        for (int i = 18; i < 24; i++) {
             paths[i] = new Path();
-            this.addObject(paths[i], i-8, 5);
+            this.addObject(paths[i], (i-9)*100+50, 550);
         }
         
-        for (int i = 23; i < 26; i++) {
+        for (int i = 24; i < 27; i++) {
             paths[i] = new Path();
-            this.addObject(paths[i], 14, 27-i);
+            this.addObject(paths[i], 1450, (28-i)*100+50);
         }
         
-        for (int i = 26; i < 28; i++) {
+        for (int i = 27; i < 29; i++) {
             paths[i] = new Path();
-            this.addObject(paths[i], 39-i, 2);
+            this.addObject(paths[i], (40-i)*100+50, 250);
         }
         
-        for (int i = 28; i < 30; i++) {
+        for (int i = 29; i < 31; i++) {
             paths[i] = new Path();
-            this.addObject(paths[i], 12, 29-i);
+            this.addObject(paths[i], 1250, (30-i)*100+50);
         }
     }
 }

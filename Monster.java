@@ -14,6 +14,6 @@ public class Monster extends Enemies
      */
     public void act()
     {
-        // Add your action code here.
+        findNextPath();
     }
 }

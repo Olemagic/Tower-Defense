@@ -16,6 +16,6 @@ public class Level extends World
     public Level()
     {    
         // Create a new world with 16x8 cells with a cell size of 100x100 pixels.
-        super(16, 8, 100); 
+        super(1600, 800, 1); 
     }
 }
