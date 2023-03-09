@@ -8,11 +8,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level_1 extends Level {
     private Path paths[] = new Path[31];
-    private Monster monster = new Monster();
+    private Enemy monster;
+    private Towers tower;
     
     public Level_1() {
+        super();
         generateLevel();
+        monster = new Monster();
+        tower = new Fire_Tower(monster);
         this.addObject(monster, 50, 450);
+        this.addObject(tower, 250, 350);
+    }
+    
+    public void act() {
+        
     }
     
     public void generateLevel() {
