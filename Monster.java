@@ -17,11 +17,11 @@ public class Monster extends Enemy
     public void act()
     {
         if (i == 1) {findNextPath();}
-        move(10);
-        distanceMoved+=10;
+        move(5);
+        distanceMoved+=5;
         Greenfoot.delay(1);
         i++;
-        if (i == 10) {i = 0;}
+        if (i == 20) {i = 0;}
     }
     
     public int getDistanceMoved() {

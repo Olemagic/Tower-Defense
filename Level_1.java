@@ -7,17 +7,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 0.1
  */
 public class Level_1 extends Level {
-    private Path paths[] = new Path[31];
-    private Enemy monster;
+    private Path[] paths = new Path[31];
+    private Monster_Spawner monsterSpawner;
     private Towers tower;
     
     public Level_1() {
         super();
         generateLevel();
-        monster = new Monster();
+        monsterSpawner = new Monster_Spawner();
         tower = new Fire_Tower(300);
-        this.addObject(monster, 50, 450);
         this.addObject(tower, 250, 350);
+        this.addObject(monsterSpawner, 0, 0);
     }
     
     public void act() {
