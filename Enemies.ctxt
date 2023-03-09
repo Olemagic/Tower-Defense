@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=Enemies
-comment0.text=\r\n\ Parent\ class\ for\ all\ enemies.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ 0.1\r\n
-comment1.params=
-comment1.target=void\ findNextPath()
-comment2.params=
-comment2.target=void\ moveSmoothly()
-numComments=3
