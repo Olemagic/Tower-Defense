@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Monster extends Enemy
 {
     private int i = 1;
+    private int distanceMoved = 0;
     /**
      * Act - do whatever the Monster wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -17,8 +18,13 @@ public class Monster extends Enemy
     {
         if (i == 1) {findNextPath();}
         move(10);
+        distanceMoved+=10;
         Greenfoot.delay(1);
         i++;
         if (i == 10) {i = 0;}
+    }
+    
+    public int getDistanceMoved() {
+        return distanceMoved;
     }
 }

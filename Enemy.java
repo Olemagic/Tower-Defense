@@ -65,4 +65,5 @@ public class Enemy extends Actor {
             Greenfoot.delay(1);
         }
     }
+    
 }

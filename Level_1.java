@@ -15,7 +15,7 @@ public class Level_1 extends Level {
         super();
         generateLevel();
         monster = new Monster();
-        tower = new Fire_Tower(monster);
+        tower = new Fire_Tower(300);
         this.addObject(monster, 50, 450);
         this.addObject(tower, 250, 350);
     }

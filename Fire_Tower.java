@@ -7,10 +7,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Fire_Tower extends Towers {
-    private Enemy monster;
+    private int range;
     
-    public Fire_Tower(Enemy pMonster) {
-        monster = pMonster;
+    public Fire_Tower(int pRange) {
+        range=pRange;
     }
     
     /**
@@ -18,6 +18,6 @@ public class Fire_Tower extends Towers {
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() {
-        aimAtTarget(monster);
+        getTarget(range);
     }
 }
