@@ -13,9 +13,10 @@ public class NextWaveButton extends GUI
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    private GreenfootImage playbutton = new GreenfootImage("playbutton.png");
-    private GreenfootImage speedbutton = new GreenfootImage("speedbutton.png");
-    private GreenfootImage speedbuttonspeeded = new GreenfootImage("speedbutton-speeded.png");
+    private boolean isSpeeded = false;
+    private GreenfootImage playbutton = new GreenfootImage("playbutton.png"); //state 0
+    private GreenfootImage speedbutton = new GreenfootImage("speedbutton.png"); //state 1
+    private GreenfootImage speedbuttonspeeded = new GreenfootImage("speedbutton-speeded.png"); //state 2
     
     public NextWaveButton() {
         setImage(playbutton);
@@ -24,15 +25,24 @@ public class NextWaveButton extends GUI
     public void act() {
         if(Greenfoot.mouseClicked(this)) {
             if(getImage() == playbutton) {
-                setImage(speedbutton);
+                if (isSpeeded) {
+                    setImage(speedbuttonspeeded);
+                    Greenfoot.setSpeed(60);
+                }
+                else {
+                    setImage(speedbutton);
+                    Greenfoot.setSpeed(50);
+                }
                 getWorld().getObjects(Monster_Spawner.class).get(0).disableTimeOut();
             }
             else if(getImage() == speedbutton) {
                 setImage(speedbuttonspeeded);
+                isSpeeded = true;
                 Greenfoot.setSpeed(60);
             }
             else if(getImage() == speedbuttonspeeded) {
                 setImage(speedbutton);
+                isSpeeded = false;
                 Greenfoot.setSpeed(50);
             }
         }
