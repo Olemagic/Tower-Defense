@@ -16,12 +16,13 @@ public class Monster extends Enemy
      */
     public void act()
     {
-        if (i == 1) {findNextPath();}
-        move(5);
-        distanceMoved+=5;
-        Greenfoot.delay(1);
+        switch(i) {
+            case 1: {findNextPath(); break;}
+            case 100: {i = 0;}
+        }
+        move(1);
+        distanceMoved+=1;
         i++;
-        if (i == 20) {i = 0;}
     }
     
     public int getDistanceMoved() {

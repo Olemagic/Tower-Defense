@@ -18,10 +18,11 @@ public class Towers extends Actor {
     public void act() {
     }
     
-    public void getTarget(int range) {
+    public double[] getTarget(int range) {
         List<Monster> enemiesInRange = getObjectsInRange(range, Monster.class);
         if(enemiesInRange.size()==0) {
-            return;
+            double[] a = {0, 0};
+            return a;
         }
         int max = enemiesInRange.get(0).getDistanceMoved();
         Enemy farthestEnemy = enemiesInRange.get(0);
@@ -32,13 +33,17 @@ public class Towers extends Actor {
                 farthestEnemy = enemiesInRange.get(i);
             }
         }
-        aimAtTarget(farthestEnemy);
+        double rotation = aimAtTarget(farthestEnemy);
+        double[] a = {1, rotation};
+        return a;
     }
     
-    public void aimAtTarget(Enemy target) {
+    public double aimAtTarget(Enemy target) {
         int distanceX = target.getX() - getX();
         int distanceY = target.getY() - getY();
         double rotation = Math.atan2(distanceY, distanceX) * 180 / Math.PI;
         setRotation((int) rotation);
+        return rotation;
     }
+    
 }
