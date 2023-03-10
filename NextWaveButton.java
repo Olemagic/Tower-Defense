@@ -18,12 +18,12 @@ public class NextWaveButton extends GUI
     public void act()
     {
         if(Greenfoot.mouseClicked(this)) {
-            setImage("button-blue.png");
+            setImage("playbutton-pressed.png");
             getWorld().getObjects(Monster_Spawner.class).get(0).disableTimeOut();
             resetColorDelay = 20;
         }
         if(resetColorDelay == 1) {
-            setImage("button-green.png");
+            setImage("playbutton.png");
         }
         if(resetColorDelay > 0) {
             resetColorDelay--;

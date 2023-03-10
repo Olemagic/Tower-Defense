@@ -11,6 +11,7 @@ public class Level_1 extends Level {
     private Monster_Spawner monsterSpawner;
     private Towers tower;
     private NextWaveButton nextWaveButton;
+    private int money = 1000;
     
     public Level_1() {
         super();
@@ -79,5 +80,21 @@ public class Level_1 extends Level {
             paths[i] = new Path();
             this.addObject(paths[i], 1250, (30-i)*100+50);
         }
+    }
+    
+    public int getMoney() {
+        return money;
+    }
+    
+    public void setMoney(int pMoney) {
+        money = pMoney;
+    }
+    
+    public void addMoney(int pMoney) {
+        money += pMoney;
+    }
+    
+    public void removeMoney(int pMoney) {
+        money -= pMoney;
     }
 }
