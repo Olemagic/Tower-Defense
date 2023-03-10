@@ -28,7 +28,18 @@ public class monsterBullet extends Bullets
           getWorld().removeObject(this);
           return;
         }
-        if(this.isAtEdge()) {
+        if(this.isTouching(Tank.class)) {
+            Tank Intersector = (Tank) getOneIntersectingObject(Tank.class);
+            if(Intersector.getHealth() <= 1) {
+              removeTouching(Tank.class);
+              getWorld().removeObject(this);
+            }
+            else {
+              Intersector.removeHealth(2);
+              getWorld().removeObject(this);
+            }
+        }
+        else if(this.isAtEdge()) {
           getWorld().removeObject(this);
         }
     }

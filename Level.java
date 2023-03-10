@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level extends World
 {
-
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -17,5 +16,6 @@ public class Level extends World
     {    
         // Create a new world with 16x8 cells with a cell size of 100x100 pixels.
         super(1600, 800, 1); 
+        Greenfoot.setSpeed(50);
     }
 }

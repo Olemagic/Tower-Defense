@@ -22,6 +22,11 @@ public class Monster_Spawner extends Actor
             waveGeneration(currentWave);
             numberOfActs++;
         }
+        else {
+            if(getWorld().getObjects(Enemy.class).size() == 0) {
+            getWorld().getObjects(NextWaveButton.class).get(0).resetImage();
+            }
+        }
     }
     
     public void disableTimeOut() {
@@ -38,7 +43,7 @@ public class Monster_Spawner extends Actor
     
     public void spawnMonster(int ammountOfMonsters, int waitTime) {
         if(numberOfActs%waitTime == 1 && ammountOfMonsters>ammountOfMonstersSpawned) {
-            Monster newMonster = new Monster();
+            Enemy newMonster = new Tank();
             ((Level_1)getWorld()).addObject(newMonster, 50, 450);
             ammountOfMonstersSpawned++;
         }

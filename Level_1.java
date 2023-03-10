@@ -10,6 +10,7 @@ public class Level_1 extends Level {
     private Path[] paths = new Path[31];
     private Monster_Spawner monsterSpawner;
     private Towers tower;
+    private Towers tripleshottower;
     private NextWaveButton nextWaveButton;
     private int money = 1000;
     
@@ -17,10 +18,12 @@ public class Level_1 extends Level {
         super();
         generateLevel();
         monsterSpawner = new Monster_Spawner();
-        tower = new Fire_Tower(300, 100);
+        tower = new Fire_Tower();
+        //tripleshottower = new Tripleshot_Tower();
         nextWaveButton = new NextWaveButton();
         this.addObject(nextWaveButton, 1550, 750);
         this.addObject(tower, 250, 350);
+        //this.addObject(tripleshottower, 250, 350);
         this.addObject(monsterSpawner, 0, 0);
     }
     

@@ -7,6 +7,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 0.1
  */
 public class Enemy extends Actor {
+    private int distanceMoved;
+    
+    public int getDistanceMoved() {
+        return distanceMoved;
+    }
+    
     public void findNextPath() {
         int rotation = getRotation();
         

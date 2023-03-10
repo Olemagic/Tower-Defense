@@ -19,7 +19,7 @@ public class Towers extends Actor {
     }
     
     public double[] getTarget(int range) {
-        List<Monster> enemiesInRange = getObjectsInRange(range, Monster.class);
+        List<Enemy> enemiesInRange = getObjectsInRange(range, Enemy.class);
         if(enemiesInRange.size()==0) {
             double[] a = {0, 0};
             return a;

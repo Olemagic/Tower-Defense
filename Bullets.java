@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Bullets extends Actor
+public class Bullets extends SmoothMover
 {
     /**
      * Act - do whatever the Bullets wants to do. This method is called whenever
