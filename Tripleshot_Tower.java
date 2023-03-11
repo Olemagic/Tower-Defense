@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Tripleshot_Tower extends Towers
 {
-    private int range = 600;
+    private int range = 300;
     private int reloadTime = 50;
     private int timeSinceLastShot = 1000;
     private double[] targetData;
