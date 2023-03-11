@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Parent class for all enemies.
- * 
- * @author (your name) 
- * @version 0.1
- */
 public class Enemy extends Actor {
     private int distanceMoved;
     
@@ -64,12 +58,4 @@ public class Enemy extends Actor {
             return;
         }
     }
-    
-    public void moveSmoothly() {
-        for (int i = 0; i < 10; i++) {
-            move(10);
-            Greenfoot.delay(1);
-        }
-    }
-    
 }
