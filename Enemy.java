@@ -1,11 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Enemy extends Actor {
-    private int distanceMoved;
+    protected int health;
+    protected int distanceMoved;
+    protected int numberOfActs = 51;
     
-    public int getDistanceMoved() {
-        return distanceMoved;
-    }
+    public void removeHealth(int damage) {health -= damage;}
+    
+    public int getdamage() {return health;}
+    
+    public int getDistanceMoved() {return distanceMoved;}
     
     public void findNextPath() {
         int rotation = getRotation();

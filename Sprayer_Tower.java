@@ -8,7 +8,7 @@ public class Sprayer_Tower extends Towers
     
     public void act() {
         timeSinceLastShot++;
-        if(timeSinceLastShot>=reloadTime) {
+        if(timeSinceLastShot>=reloadTime && !getObjectsInRange(range, Enemy.class).isEmpty()) {
             shoot();
         }
     }
