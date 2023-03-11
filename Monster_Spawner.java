@@ -1,18 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Monster_Spawner here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Monster_Spawner extends Actor
-{
-    /**
-     * Act - do whatever the Monster_Spawner wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    private int ammountOfMonstersSpawned = 0;
+public class Monster_Spawner extends Actor {
+    private int amountOfMonstersSpawned = 0;
     private int numberOfActs = 0;
     private int currentWave = 1;
     private boolean waveTimeOut = true;
@@ -41,14 +30,14 @@ public class Monster_Spawner extends Actor
         }
     }
     
-    public void spawnMonster(int ammountOfMonsters, int waitTime) {
-        if(numberOfActs%waitTime == 1 && ammountOfMonsters>ammountOfMonstersSpawned) {
+    public void spawnMonster(int amountOfMonsters, int waitTime) {
+        if(numberOfActs%waitTime == 1 && amountOfMonsters>amountOfMonstersSpawned) {
             Enemy newMonster = new Tank();
-            ((Level_1)getWorld()).addObject(newMonster, 50, 450);
-            ammountOfMonstersSpawned++;
+            getWorld().addObject(newMonster, 0, 450);
+            amountOfMonstersSpawned++;
         }
-        if(ammountOfMonsters==ammountOfMonstersSpawned) {
-            ammountOfMonstersSpawned = 0;
+        if(amountOfMonsters==amountOfMonstersSpawned) {
+            amountOfMonstersSpawned = 0;
             currentWave++;
             waveTimeOut = true;
         }

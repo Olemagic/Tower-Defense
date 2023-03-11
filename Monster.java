@@ -1,27 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Monster here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Monster extends Enemy
-{
-    private int i = 1;
+public class Monster extends Enemy {
+    private int numberOfActs = 51;
     private int distanceMoved = 0;
-    /**
-     * Act - do whatever the Monster wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        switch(i) {
+    
+    public void act() {
+        switch(numberOfActs) {
             case 1: {findNextPath(); break;}
-            case 100: {i = 0;}
+            case 100: {numberOfActs = 0;}
         }
         move(1);
-        distanceMoved+=1;
-        i++;
+        distanceMoved += 1;
+        numberOfActs++;
     }
 }
