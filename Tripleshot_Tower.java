@@ -20,6 +20,7 @@ public class Tripleshot_Tower extends Towers
         timeSinceLastShot++;
         targetData = getTarget(range);
         if(targetData[0] == 1 && timeSinceLastShot>=reloadTime) {
+            setRotation((int) targetData[1]);
             shoot(targetData[1]);
             timeSinceLastShot = 0;
         }
