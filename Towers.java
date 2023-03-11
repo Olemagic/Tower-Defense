@@ -2,11 +2,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 
 public class Towers extends Actor {
-    public int[] getRotationToTarget(int range) {
+    public Enemy getFurthestEnemyInRange(int range) {
         List<Enemy> enemiesInRange = getObjectsInRange(range, Enemy.class);
         if(enemiesInRange.isEmpty()) {
-            int[] a = {0, 0};
-            return a;
+            return null;
         }
         
         int max = enemiesInRange.get(0).getDistanceMoved();
@@ -19,12 +18,10 @@ public class Towers extends Actor {
             }
         }
         
-        int rotation = aimAtTarget(farthestEnemy);
-        int[] a = {1, rotation};
-        return a;
+        return farthestEnemy;
     }
     
-    public int aimAtTarget(Enemy target) {
+    public int getRotationToTarget(Enemy target) {
         int distanceX = target.getX() - getX();
         int distanceY = target.getY() - getY();
         int rotation = (int) (Math.atan2(distanceY, distanceX) * 180 / Math.PI);
