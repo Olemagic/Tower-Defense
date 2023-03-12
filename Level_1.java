@@ -2,27 +2,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Level_1 extends Level {
     private Path[] paths = new Path[31];
-    private Monster_Spawner monsterSpawner;
-    private Towers tower;
-    private Towers tripleshottower;
-    //private Towers[] tripleshottower = new Tripleshot_Tower[100];
-    private NextWaveButton nextWaveButton;
-    private int money = 1000;
-    private int health = 100;
+    private Finish finish = new Finish();
     
     public Level_1() {
         super();
-        generateLevel();
-        tower = new Fire_Tower();
-        tripleshottower = new Tripleshot_Tower();
-        //tripleshottower = new Tripleshot_Tower();
-        addObject(tripleshottower, 250, 350);
-        //addObject(tripleshottower, 250, 350);
         
-        //for (int i = 0; i < tripleshottower.length; i++) {
-        //    tripleshottower[i] = new Tripleshot_Tower();
-        //    addObject(tripleshottower[i], 450, 400+i);
-        //}
+        //config
+        money = 1000;
+        health = 150;
+        
+        //generate level
+        prepare();
+        generateLevel();
     }
     
     public void generateLevel() {
@@ -75,5 +66,7 @@ public class Level_1 extends Level {
             paths[i] = new Path();
             addObject(paths[i], 1250, (30-i)*100+50);
         }
+        
+        addObject(finish, 1250, 0);
     }
 }

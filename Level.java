@@ -1,20 +1,26 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Level extends World {
-    private Monster_Spawner monsterSpawner;
-    private NextWaveButton nextWaveButton;
-    private int money;
-    private int health;
+    protected Monster_Spawner monsterSpawner;
+    protected NextWaveButton nextWaveButton;
+    protected Health healthicon;
+    
+    protected int money;
+    protected int health;
     
     public Level() {    
         super(1600, 800, 1); 
         Greenfoot.setSpeed(50);
-        
+    }
+    
+    public void prepare() {
         monsterSpawner = new Monster_Spawner();
         nextWaveButton = new NextWaveButton();
+        healthicon = new Health(this);
         
         addObject(monsterSpawner, 0, 0);
         addObject(nextWaveButton, 1550, 750);
+        addObject(healthicon, 80, 25);
     }
     
     public void act() {
@@ -22,8 +28,6 @@ public class Level extends World {
             lose();
         }
     }
-    
-    //public void
     
     public void win() {
         
