@@ -4,7 +4,9 @@ public class Tank extends Enemy {
     public Tank() {
         //config
         health = 5;
+        damage = 2;
     }
+    
     public void act() {
         if (health <= 0) {
             getWorld().removeObject(this);

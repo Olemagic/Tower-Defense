@@ -7,8 +7,9 @@ public class Finish extends Actor {
         for (int i = 0; i < enemies.size(); i++) {
             if (enemies.get(i).getY() != 0) {return;}
             
+            int damage = enemies.get(i).getDamage();
             Level world = (Level) getWorld();
-            world.removeHealth(1);
+            world.removeHealth(damage);
             world.removeObject(enemies.get(i));
         }
     }

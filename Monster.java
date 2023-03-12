@@ -4,6 +4,7 @@ public class Monster extends Enemy {
     public Monster() {
         //config
         health = 1;
+        damage = 1;
     }
     
     public void act() {

@@ -2,12 +2,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Enemy extends Actor {
     protected int health;
+    protected int damage;
+    
     protected int distanceMoved;
     protected int numberOfActs = 51;
     
     public void removeHealth(int damage) {health -= damage;}
     
-    public int getdamage() {return health;}
+    public int getDamage() {return damage;}
     
     public int getDistanceMoved() {return distanceMoved;}
     
