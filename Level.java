@@ -4,6 +4,7 @@ public class Level extends World {
     protected Monster_Spawner monsterSpawner;
     protected NextWaveButton nextWaveButton;
     protected Health healthicon;
+    protected Money moneyicon;
     
     protected int money;
     protected int health;
@@ -17,10 +18,12 @@ public class Level extends World {
         monsterSpawner = new Monster_Spawner();
         nextWaveButton = new NextWaveButton();
         healthicon = new Health(this);
+        moneyicon = new Money(this);
         
         addObject(monsterSpawner, 0, 0);
         addObject(nextWaveButton, 1550, 750);
         addObject(healthicon, 80, 25);
+        addObject(moneyicon, 210, 25);
     }
     
     public void act() {
