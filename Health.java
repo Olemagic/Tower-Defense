@@ -1,6 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class Health extends Actor{
+public class Health extends GUI{
     private Level world;
     private int health;
     private GreenfootImage image = new GreenfootImage(150, 50);

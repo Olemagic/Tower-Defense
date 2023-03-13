@@ -2,7 +2,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class monsterBullet extends Bullets {
     //config
-    private int lifespan = 300;
     private int damage = 2;
     
     private int timeAlive;
@@ -20,9 +19,6 @@ public class monsterBullet extends Bullets {
             getWorld().removeObject(this);
         }
         else if(isAtEdge()) {
-            getWorld().removeObject(this);
-        }
-        else if(timeAlive >= lifespan) {
             getWorld().removeObject(this);
         }
     }
