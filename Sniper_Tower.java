@@ -21,6 +21,7 @@ public class Sniper_Tower extends Towers
     
     public void shoot(Enemy target) {
         target.removeHealth(damage);
+        target.isDead();
         timeSinceLastShot = 0;
     }
 }

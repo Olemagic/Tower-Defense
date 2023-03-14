@@ -9,6 +9,7 @@ public class Monster extends Enemy {
     
     public void act() {
         if (health <= 0) {
+            ((Level) getWorld()).addMoney(20);
             getWorld().removeObject(this);
             return;
         }

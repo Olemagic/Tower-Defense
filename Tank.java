@@ -9,6 +9,7 @@ public class Tank extends Enemy {
     
     public void act() {
         if (health <= 0) {
+            ((Level) getWorld()).addMoney(40);
             getWorld().removeObject(this);
             return;
         }

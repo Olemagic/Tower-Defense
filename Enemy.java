@@ -9,6 +9,13 @@ public class Enemy extends Actor {
     
     public void removeHealth(int damage) {health -= damage;}
     
+    public void isDead() {
+        if (health <= 0) {
+            ((Level) getWorld()).addMoney(20);
+            getWorld().removeObject(this);
+        }
+    }
+    
     public int getDamage() {return damage;}
     
     public int getDistanceMoved() {return distanceMoved;}
