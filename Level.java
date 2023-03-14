@@ -1,6 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Level extends World {
+    protected Start start = new Start();
+    protected Finish finish = new Finish();
     protected Monster_Spawner monsterSpawner;
     protected NextWaveButton nextWaveButton;
     protected Health healthicon;
@@ -15,7 +17,7 @@ public class Level extends World {
     }
     
     public void prepare() {
-        monsterSpawner = new Monster_Spawner();
+        monsterSpawner = new Monster_Spawner(start);
         nextWaveButton = new NextWaveButton();
         healthicon = new Health(this);
         moneyicon = new Money(this);

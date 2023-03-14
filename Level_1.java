@@ -2,7 +2,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Level_1 extends Level {
     private Path[] paths = new Path[31];
-    private Finish finish = new Finish();
 
     public Level_1() {
         super();
@@ -12,14 +11,14 @@ public class Level_1 extends Level {
         health = 150;
 
         //generate level
-        prepare();
         generateLevel();
+        prepare();
     }
 
     public void generateLevel() {
         for (int i = 0; i < 4; i++) {
             paths[i] = new Path();
-            addObject(paths[i], (i)*100+50, 450);
+            addObject(paths[i], i*100+50, 450);
         }
 
         for (int i = 4; i < 6; i++) {
@@ -66,7 +65,9 @@ public class Level_1 extends Level {
             paths[i] = new Path();
             addObject(paths[i], 1250, (30-i)*100+50);
         }
-
+        
+        addObject(start, 0, 450);
+        
         addObject(finish, 1250, 0);
     }
 }
