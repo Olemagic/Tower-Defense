@@ -12,17 +12,9 @@ public class Tack_Bullet extends Bullets {
     }
     
     public void act() {
-        timeAlive += 5;
-        move(5);
-        if(isTouching(Enemy.class)) {
-            Enemy hitEnemy = (Enemy) getOneIntersectingObject(Enemy.class);
-            hitEnemy.removeHealth(damage);
-            getWorld().removeObject(this);
-        }
-        else if(isAtEdge()) {
-            getWorld().removeObject(this);
-        }
-        else if(timeAlive >= lifespan) {
+        super.act();
+        timeAlive +=5;
+        if(timeAlive >= lifespan) {
             getWorld().removeObject(this);
         }
     }
