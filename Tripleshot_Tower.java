@@ -1,9 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Tripleshot_Tower extends Towers {
-    private int range = 300;
-    private int reloadTime = 50;
-    private int timeSinceLastShot = 1000;
+    public Tripleshot_Tower() {
+        //config
+        range = 300;
+        reloadTime = 50;
+        damage = 1;
+    }
     
     public void act() {
         timeSinceLastShot++;
@@ -19,9 +22,9 @@ public class Tripleshot_Tower extends Towers {
     
     public void shoot(Enemy target) {
         int rotation = getRotationToTarget(target);
-        getWorld().addObject(new monsterBullet(rotation), getX(), getY());
-        getWorld().addObject(new monsterBullet(rotation+10), getX(), getY());
-        getWorld().addObject(new monsterBullet(rotation-10), getX(), getY());
+        getWorld().addObject(new monsterBullet(rotation, damage), getX(), getY());
+        getWorld().addObject(new monsterBullet(rotation+10, damage), getX(), getY());
+        getWorld().addObject(new monsterBullet(rotation-10, damage), getX(), getY());
         
         timeSinceLastShot = 0;
     }

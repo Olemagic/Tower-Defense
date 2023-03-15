@@ -1,11 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class Sniper_Tower extends Towers
-{
-    private int range = 2000;
-    private int reloadTime = 150;
-    private int damage = 3;
-    private int timeSinceLastShot = 1000;
+public class Sniper_Tower extends Towers {
+    public Sniper_Tower() {
+        //config
+        range = 2000;
+        reloadTime = 150;
+        damage = 3;
+    }
     
     public void act() {
         timeSinceLastShot++;

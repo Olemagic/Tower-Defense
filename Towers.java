@@ -2,6 +2,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 
 public class Towers extends Actor {
+    protected int range = 300;
+    protected int reloadTime = 50;
+    protected int damage = 2;
+    protected int timeSinceLastShot = 1000;
+    
     public Enemy getFurthestEnemyInRange(int range) {
         List<Enemy> enemiesInRange = getObjectsInRange(range, Enemy.class);
         if(enemiesInRange.isEmpty()) {

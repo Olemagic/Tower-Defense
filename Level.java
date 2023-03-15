@@ -9,6 +9,7 @@ public class Level extends World {
     protected Money moneyicon;
     
     protected Buy_Fire_Tower firetowericon;
+    protected Buy_Tripleshot_Tower tripleshottowericon;
     protected Buy_Sniper_Tower snipertowericon;
     protected Buy_Sprayer_Tower sprayertowericon;
     
@@ -16,7 +17,7 @@ public class Level extends World {
     protected int health;
     
     public Level() {    
-        super(1600, 800, 1); 
+        super(1600, 900, 1); 
         Greenfoot.setSpeed(50);
     }
     
@@ -25,17 +26,21 @@ public class Level extends World {
         nextWaveButton = new NextWaveButton();
         healthicon = new Health(this);
         moneyicon = new Money(this);
-        firetowericon = new Buy_Fire_Tower();
-        snipertowericon = new Buy_Sniper_Tower();
-        sprayertowericon = new Buy_Sprayer_Tower();
+        
+        firetowericon = new Buy_Fire_Tower(this);
+        tripleshottowericon = new Buy_Tripleshot_Tower(this);
+        sprayertowericon = new Buy_Sprayer_Tower(this);
+        snipertowericon = new Buy_Sniper_Tower(this);
         
         addObject(monsterSpawner, 0, 0);
-        addObject(nextWaveButton, 1550, 750);
+        addObject(nextWaveButton, 1550, 850);
         addObject(healthicon, 80, 25);
         addObject(moneyicon, 210, 25);
-        addObject(firetowericon, 340, 24);
-        addObject(snipertowericon, 470, 24);
-        addObject(sprayertowericon, 610, 24);
+        
+        addObject(firetowericon, 50, 850);
+        addObject(tripleshottowericon, 150, 850);
+        addObject(sprayertowericon, 250, 850);
+        addObject(snipertowericon, 350, 850);
     }
     
     public void act() {
