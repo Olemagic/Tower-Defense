@@ -12,41 +12,15 @@ public class Towers extends Actor {
         if(enemiesInRange.isEmpty()) {
             return null;
         }
-        
-        int numberOfEnemiesLeft = 0;
+        int max = 0;
+        Enemy farthestEnemy = null;
         for (int i = 0; i < enemiesInRange.size(); i++) {
-            Enemy currentEnemy = enemiesInRange.get(i);
-            int rotation = getRotationToTarget(currentEnemy);
-            if (hasLineOfSight(currentEnemy, rotation)) {
-                enemiesInRange.remove(i);
-                i--;
-            }
-            else {
-                numberOfEnemiesLeft++;
-            }
-        }
-        
-        if (numberOfEnemiesLeft == 0) {
-            return null;
-        }
-        Enemy[] enemiesWithLOS = new Enemy[numberOfEnemiesLeft];
-        
-        int j = 0;
-        for (int i = 0; i < enemiesInRange.size(); i++) {
-            if (enemiesInRange.get(i) != null) {
-                enemiesWithLOS[j] = enemiesInRange.get(i);
-                j++;
-            }
-        }
-        
-        
-        int max = enemiesWithLOS[0].getDistanceMoved();
-        Enemy farthestEnemy = enemiesWithLOS[0];
-        for (int i = 1; i < enemiesWithLOS.length; i++) {
-            int currentEnemyDistanceMoved = enemiesWithLOS[i].getDistanceMoved();
+            int currentEnemyDistanceMoved = enemiesInRange.get(i).getDistanceMoved();
             if(max < currentEnemyDistanceMoved) {
-                max = currentEnemyDistanceMoved;
-                farthestEnemy = enemiesWithLOS[i];
+                if(hasLineOfSight(enemiesInRange.get(i))) {
+                    max = currentEnemyDistanceMoved;
+                    farthestEnemy = enemiesInRange.get(i);
+                }
             }
         }
         
@@ -60,22 +34,11 @@ public class Towers extends Actor {
         return rotation;
     }
     
-    public boolean hasLineOfSight(Enemy enemy, int rotation) {
-        boolean foundObstacle = false;
-        LineOfSightBullet LOSchecker = new LineOfSightBullet(rotation);
-        getWorld().addObject(LOSchecker, getX(), getY());
-        
-        while (!foundObstacle) {
-            LOSchecker.move(1);
-            if (LOSchecker.checkEnemy(enemy)) {
-                return false;
-            }
-            
-            if (LOSchecker.checkObstacle()){
-                foundObstacle = true; //should just return true but we need a while loop...
-            }
-        }
-        
-        return foundObstacle;
+    public boolean hasLineOfSight(Enemy enemy) {
+        Ray ray = new Ray(enemy, this);
+        getWorld().addObject(ray, 0, 0);
+        boolean hasLOS = ray.HasLOS();
+        getWorld().removeObject(ray);
+        return hasLOS;
     }
 }
