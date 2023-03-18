@@ -5,9 +5,14 @@ public class Monster extends Enemy {
         //config
         health = 1;
         damage = 1;
+        enemyName = "Enemy-1";
     }
     
     public void act() {
+        if (numberOfActs%5 == 0) {
+            updateImage();
+        }
+        
         if (health <= 0) {
             ((Level) getWorld()).addMoney(20);
             getWorld().removeObject(this);

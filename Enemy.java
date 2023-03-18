@@ -3,9 +3,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Enemy extends Actor {
     protected int health;
     protected int damage;
+    protected String enemyName;
     
     protected int distanceMoved;
     protected int numberOfActs = 51;
+    protected int currentImage;
     
     public void removeHealth(int damage) {health -= damage;}
     
@@ -70,5 +72,11 @@ public class Enemy extends Actor {
             }
             return;
         }
+    }
+    
+    public void updateImage() {
+        setImage(enemyName+"/"+currentImage+".png");
+        currentImage++;
+        if (currentImage == 19) currentImage = 0;
     }
 }
