@@ -62,7 +62,7 @@ public class Level_2 extends Level {
         }
         
         addObject(start, 0, 150);
-        start.setRotation(90);
+        start.setRotation(270);
         
         addObject(finish, 1599, 650);
         finish.setRotation(90);
