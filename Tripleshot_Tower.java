@@ -4,7 +4,7 @@ public class Tripleshot_Tower extends Towers {
     public Tripleshot_Tower() {
         //config
         range = 300;
-        reloadTime = 1;
+        reloadTime = 50;
         damage = 1;
     }
     

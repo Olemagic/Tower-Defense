@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Level_2 extends Level {
-    private Path[] paths = new Path[41];
+    private Path[] paths = new Path[37];
 
     public Level_2() {
         super();
@@ -16,55 +16,49 @@ public class Level_2 extends Level {
     }
 
     public void generateLevel() {
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 4; i++) {
             paths[i] = new Path();
-            addObject(paths[i], i*100+50, 150);
+            addObject(paths[i], 550, i*100+50);
         }
         
-        for (int i = 2; i < 7; i++) {
+        for (int i = 4; i < 8; i++) {
             paths[i] = new Path();
-            addObject(paths[i], 150, i*100+50);
+            addObject(paths[i], (8-i)*100+50, 350);
         }
         
-        for (int i = 7; i < 11; i++) {
+        for (int i = 8; i < 10; i++) {
             paths[i] = new Path();
-            addObject(paths[i], (i-5)*100+50, 650);
+            addObject(paths[i], 150, (i-7)*100+50);
         }
         
-        for (int i = 11; i < 16; i++) {
+        for (int i = 10; i < 13; i++) {
             paths[i] = new Path();
-            addObject(paths[i], 550, (16-i)*100+50);
+            addObject(paths[i], (i-8)*100+50, 150);
         }
         
-        for (int i = 16; i < 24; i++) {
+        for (int i = 13; i < 20; i++) {
             paths[i] = new Path();
-            addObject(paths[i], (i-9)*100-50, 150);
+            addObject(paths[i], (i-7)*100+50, 150);
         }
         
-        for (int i = 24; i < 27; i++) {
+        for (int i = 20; i < 24; i++) {
             paths[i] = new Path();
-            addObject(paths[i], 1350, (i-22)*100+50);
+            addObject(paths[i], 1250, (i-18)*100+50);
         }
         
-        for (int i = 27; i < 32; i++) {
+        for (int i = 24; i < 28; i++) {
             paths[i] = new Path();
-            addObject(paths[i], (39-i)*100+50, 450);
+            addObject(paths[i], (35-i)*100+50, 550);
         }
         
-        for (int i = 32; i < 34; i++) {
+        for (int i = 28; i < 37; i++) {
             paths[i] = new Path();
-            addObject(paths[i], 850, (i-27)*100+50);
+            addObject(paths[i], (36-i)*100+50, 650);
         }
         
-        for (int i = 34; i < 41; i++) {
-            paths[i] = new Path();
-            addObject(paths[i], (i-25)*100+50, 650);
-        }
+        addObject(start, 550, 0);
         
-        addObject(start, 0, 150);
-        start.setRotation(270);
-        
-        addObject(finish, 1599, 650);
+        addObject(finish, 0, 650);
         finish.setRotation(90);
     }
 }

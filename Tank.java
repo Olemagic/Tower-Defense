@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Tank extends Enemy {
     public Tank() {
         //config
-        health = 20;
+        health = 5;
         damage = 2;
         enemyName = "Enemy-2";
     }

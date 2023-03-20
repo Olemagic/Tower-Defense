@@ -33,7 +33,7 @@ public class Monster_Spawner extends Actor {
     
     public void waveGeneration(int waveNumber) {
         switch(waveNumber){
-            case 1: spawnTank(500, 10); break;
+            case 1: spawnTank(15, 100); break;
         }
     }
     
