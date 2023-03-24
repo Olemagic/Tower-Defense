@@ -21,7 +21,7 @@ public class Monster_Spawner extends Actor {
             numberOfActs++;
         }
         else {
-            if(getWorld().getObjects(Enemy.class).size() == 0) {
+            if(getWorld().getObjects(Enemy.class).isEmpty()) {
             getWorld().getObjects(NextWaveButton.class).get(0).resetImage();
             }
         }

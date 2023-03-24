@@ -1,20 +1,34 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
+/**
+ * Level 1
+ * @author Ole, Oskar, Shikri, Timo
+ * @version 1.0
+ */
 public class Level_1 extends Level {
-    private Path[] paths = new Path[31];
+    private Path[] paths = new Path[31]; //Wegobjekte
 
+    /**
+     * Constructor für Level 1
+     * Setzt Leben auf 150
+     * Setzt Geld auf 1000
+     */
     public Level_1() {
         super();
 
         //config
-        money = 1000;
         health = 150;
+        money = 1000;
 
         //generate level
         generateLevel();
         prepare();
     }
 
+    /**
+     * Generiert Pfad
+     * Generiert Start- und Endpunkt
+     */
     public void generateLevel() {
         for (int i = 0; i < 4; i++) {
             paths[i] = new Path();

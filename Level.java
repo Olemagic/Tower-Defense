@@ -1,29 +1,42 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
+/**
+ * Parent-class für alle Level, gemeinsame Methoden und Attribute
+ * @author Ole, Oskar, Shikri, Timo
+ * @version 1.0
+ */
 public class Level extends World {
-    protected Start start = new Start();
-    protected Finish finish = new Finish();
-    protected Monster_Spawner monsterSpawner;
-    protected NextWaveButton nextWaveButton;
-    protected Health healthicon;
-    protected Money moneyicon;
+    protected Start start = new Start(); //Spawnpunkt
+    protected Finish finish = new Finish(); //Ziel
+    protected Monster_Spawner monsterSpawner; //Klasse zum spawnen von Monstern
+    protected NextWaveButton nextWaveButton = new NextWaveButton(); //Button zum Starten
+    protected Health healthicon; //Lebensanzeige
+    protected Money moneyicon; //Geldanzeige
     
+    //Buttons zum Tower-Kaufen
     protected Buy_Fire_Tower firetowericon;
     protected Buy_Tripleshot_Tower tripleshottowericon;
     protected Buy_Sniper_Tower snipertowericon;
     protected Buy_Sprayer_Tower sprayertowericon;
     
-    protected int money;
-    protected int health;
+    protected int money; //Aktuelles Geld
+    protected int health; //Aktuelle Leben
     
+    /**
+     * Constructor für Level
+     * Setzt Weltgröße auf 1600x900
+     * Setzt Speed auf 50
+     */
     public Level() {    
         super(1600, 900, 1); 
         Greenfoot.setSpeed(50);
     }
     
+    /**
+     * Prepare-Methode für Levelaufbau, der erst aufgerufen werden kann, nachdem der Weg aufgebaut ist
+     */
     public void prepare() {
         monsterSpawner = new Monster_Spawner(start);
-        nextWaveButton = new NextWaveButton();
         healthicon = new Health(this);
         moneyicon = new Money(this);
         
@@ -43,27 +56,75 @@ public class Level extends World {
         addObject(snipertowericon, 350, 850);
     }
     
+    /**
+     * Act-Methode:
+     * Überprüft, ob noch Leben vorhanden sind und ruft sonst lose-Methode auf
+     */
     public void act() {
         if (health < 1) {
             lose();
         }
     }
     
+    /**
+     * Wird bei Sieg aufgerufen
+     */
     public void win() {
         
     }
     
+    /**
+     * Wird aufgerufen, wenn alle Leben abgezogen wurden
+     */
     public void lose() {
         
     }
     
+    /**
+     * Gibt aktuelles Geld zurücck
+     * @return aktuelles Geld
+     */
     public int getMoney() {return money;}
+    
+    /**
+     * Setzt aktuelles Geld
+     * @param pMoney    Neuer Wert
+     */
     public void setMoney(int pMoney) {money = pMoney;}
+    
+    /**
+     * Fügt Geld hinzu
+     * @param pMoney    Geld, dass hinzugefügt wird
+     */
     public void addMoney(int pMoney) {money += pMoney;}
+    
+    /**
+     * Entfernt Geld
+     * @param pMoney    Geld, dass entfernt wird
+     */
     public void removeMoney(int pMoney) {money -= pMoney;}
     
+    /**
+     * Gibt aktuelle Leben zurück
+     * @return aktuelle Leben
+     */
     public int getHealth() {return health;}
+    
+    /**
+     * Setzt Leben
+     * @param pHealth   Neuer Wert
+     */
     public void setHealth(int pHealth) {health = pHealth;}
+    
+    /**
+     * Fügt Leben hinzu
+     * @param pHealth   Leben, dass hinzugefügt wird
+     */
     public void addHealth(int pHealth) {health += pHealth;}
+    
+    /**
+     * Entfernt Leben
+     * @param phealth   Leben, dass entfernt wird
+     */
     public void removeHealth(int pHealth) {health -= pHealth;}
 }

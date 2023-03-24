@@ -1,6 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
+/**
+ * Erster Gegner
+ * @author Ole, Oskar, Shikri, Timo
+ * @version 1.0 
+ */
 public class Monster extends Enemy {
+    /**
+     * Constructor für Monster
+     * Legt Attribute fest
+     */
     public Monster() {
         //config
         health = 1;
@@ -8,6 +17,12 @@ public class Monster extends Enemy {
         enemyName = "Enemy-1";
     }
     
+    /**
+     * Act-Methode von Monster:
+     * -Aktualisiert das Bild alle 5 acts
+     * -Überprüft, ob der Gegner tot ist und entfernt ihn
+     * -Sucht den nächsten Weg und bewegt sich
+     */
     public void act() {
         if (numberOfActs%5 == 0) {
             updateImage();
