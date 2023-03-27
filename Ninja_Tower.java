@@ -1,24 +1,24 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Vierter Turm, schießt ohne Projektile und hat unendliche Reichweite
+ * schießt einzelne, zielsuchende Projektile
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */
-public class Sniper_Tower extends Towers {
+public class Ninja_Tower extends Towers {
     /**
-     * Constructor für Sniper_Tower:<br>
+     * Constructor für Fire_Tower:<br>
      * -Setzt Range, Nachladezeit und Schaden
      */
-    public Sniper_Tower() {
+    public Ninja_Tower() {
         //config
-        range = 2000;
-        reloadTime = 150;
-        damage = 3;
+        range = 400;
+        reloadTime = 100;
+        damage = 1;
     }
     
     /**
-     * Act-Methode von Sniper_Tower:<br>
+     * Act-Methode von Fire_Tower:<br>
      * -Implementiert Nachladezeit<br>
      * -Schießt, wenn ein Gegner vorhanden ist und geschossen werden kann
      */
@@ -34,15 +34,15 @@ public class Sniper_Tower extends Towers {
     }
     
     /**
-     * Dreht sich zum Gegner und schießt auf ihn
+     * Dreht sich zum Gegner und spawnt ein Bullet
      * @param target    Gegner, auf den geschossen wird
      */
     public void shoot(Enemy target) {
         int rotation = getRotationToTarget(target);
         
         setRotation(rotation);
-        target.removeHealth(damage);
-        target.isDead();
+        getWorld().addObject(new Shuriken(rotation, damage), getX(), getY());
+        
         timeSinceLastShot = 0;
     }
 }

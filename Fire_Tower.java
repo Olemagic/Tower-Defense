@@ -13,7 +13,7 @@ public class Fire_Tower extends Towers {
     public Fire_Tower() {
         //config
         range = 300;
-        reloadTime = 50;
+        reloadTime = 100;
         damage = 2;
     }
     

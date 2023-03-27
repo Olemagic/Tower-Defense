@@ -18,6 +18,7 @@ public class Level extends World {
     protected Buy_Tripleshot_Tower tripleshottowericon;
     protected Buy_Sniper_Tower snipertowericon;
     protected Buy_Sprayer_Tower sprayertowericon;
+    protected Buy_Ninja_Tower ninjatowericon;
     
     protected int money; //Aktuelles Geld
     protected int health; //Aktuelle Leben
@@ -44,6 +45,7 @@ public class Level extends World {
         tripleshottowericon = new Buy_Tripleshot_Tower(this);
         sprayertowericon = new Buy_Sprayer_Tower(this);
         snipertowericon = new Buy_Sniper_Tower(this);
+        ninjatowericon = new Buy_Ninja_Tower(this);
         
         addObject(monsterSpawner, 0, 0);
         addObject(nextWaveButton, 1550, 850);
@@ -54,6 +56,11 @@ public class Level extends World {
         addObject(tripleshottowericon, 150, 850);
         addObject(sprayertowericon, 250, 850);
         addObject(snipertowericon, 350, 850);
+        addObject(ninjatowericon, 450, 850);
+        
+        for(int i = 0; i<1; i++) {
+            addObject(new Fire_Tower(), 700, 500);
+        }
     }
     
     /**

@@ -39,6 +39,8 @@ public class Tripleshot_Tower extends Towers {
      */
     public void shoot(Enemy target) {
         int rotation = getRotationToTarget(target);
+        
+        setRotation(rotation);
         getWorld().addObject(new monsterBullet(rotation, damage), getX(), getY());
         getWorld().addObject(new monsterBullet(rotation+10, damage), getX(), getY());
         getWorld().addObject(new monsterBullet(rotation-10, damage), getX(), getY());
