@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Ninja_Tower extends Towers {
     /**
-     * Constructor für Fire_Tower:<br>
+     * Constructor für Ninja_Tower:<br>
      * -Setzt Range, Nachladezeit und Schaden
      */
     public Ninja_Tower() {
@@ -18,7 +18,7 @@ public class Ninja_Tower extends Towers {
     }
     
     /**
-     * Act-Methode von Fire_Tower:<br>
+     * Act-Methode von Ninja_Tower:<br>
      * -Implementiert Nachladezeit<br>
      * -Schießt, wenn ein Gegner vorhanden ist und geschossen werden kann
      */
@@ -34,7 +34,7 @@ public class Ninja_Tower extends Towers {
     }
     
     /**
-     * Dreht sich zum Gegner und spawnt ein Bullet
+     * Dreht sich zum Gegner und spawnt einen Shuriken
      * @param target    Gegner, auf den geschossen wird
      */
     public void shoot(Enemy target) {

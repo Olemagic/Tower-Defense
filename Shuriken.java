@@ -7,49 +7,58 @@ import java.util.List;  // (List)
  * @version 1.0
  */
 public class Shuriken extends Bullets {
-    private int rotation;
-    private int desiredRotation;
-    private Enemy target;
+    private Enemy target; //Target
     
     /**
-     * Constructor für monsterBullet:<br>
+     * Constructor für Shuriken:<br>
      * -Legt die Rotation, den Schaden und Pierce fest<br>
      * -Deklariert die Länge des Arrays hitEnemies
      * @param rotation  Rotation des Bullets
      * @param pDamage   Schaden, den das Bullet an Gegnern macht
      */
     public Shuriken(int pRotation, int pDamage) {
-        rotation = pRotation;
         setRotation(pRotation);
         damage = pDamage;
         pierce = 3;
         hitEnemies = new Enemy[pierce];
     }
     
+    /**
+     * Act-Methode von Shuriken(Dreht sich zum Gegner):<br>
+     * -Erster Gegner: am weitesten gelaufen<br>
+     * -Danach: am nächsten von der aktuellen Position
+     */
     public void act() {
         if(pierce == 3) {
             target = getFurthestEnemy();
             if(target != null) {
-                desiredRotation = getRotationToTarget(target);
+                setRotation(getRotationToTarget(target));
             }
         }
         else {
             target = getNearestEnemy();
             if(target != null) {
-                desiredRotation = getRotationToTarget(target);
+                setRotation(getRotationToTarget(target));
             }
-        }
-        if(target !=null) {
-            rotation = desiredRotation;
-            setRotation(rotation);
         }
         super.act();
     }
     
-    public double getDistance(Actor actor) {
-        return Math.hypot(actor.getX() - getX(), actor.getY() - getY());
+    /**
+     * Gibt die Distanz zwischen einem Gegner und dem Shuriken zurück
+     * @param target    Der Gegner
+     * @return Die Entfernung
+     */
+    public double getDistance(Enemy target) {
+        return Math.hypot(target.getX() - getX(), target.getY() - getY());
     }
     
+    /**
+     * Gibt den am weitesten gelaufenen Gegner in der angegebenen Reichweite zurück
+     * @see Towers#getFurthestEnemyInRange(int)
+     * @param range Suchradius
+     * @return am weitesten gelaufener Gegner
+     */
     public Enemy getFurthestEnemy() {
         List<Enemy> enemiesInRange = getObjectsInRange(10000, Enemy.class);
         if(enemiesInRange.isEmpty()) {
@@ -70,11 +79,15 @@ public class Shuriken extends Bullets {
         return farthestEnemy;
     }
     
+    /**
+     * Gibt den nächstliegenden Gegner zurück
+     * @return nächstliegender Gegner
+     */
     public Enemy getNearestEnemy() {
-        List<Enemy> nearEnemies = getObjectsInRange(10000, Enemy.class);
+        List<Enemy> nearEnemies = getObjectsInRange(2000, Enemy.class);
         Enemy nearestEnemy = null;
         boolean progress = true;
-        double nearestDistance = 10000;
+        double nearestDistance = 2000;
         double distance;
         for (int i = 0; i < nearEnemies.size(); i++) {
             for (int j = 0; j<hitEnemies.length; j++) {
