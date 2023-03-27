@@ -10,8 +10,9 @@ public class Money extends GUI{
     private GreenfootImage image = new GreenfootImage(150, 50); //Das Bild
     
     /**
-     * Constructor für Money:
+     * Constructor für Money:<br>
      * -Speichert die Welt und erstellt das Bild
+     * @param level Die Welt
      */
     public Money(Level level) {
         world = level;
@@ -19,14 +20,17 @@ public class Money extends GUI{
     }
     
     /**
-     * Act-Methode von Money
+     * Act-Methode von Money:<br>
+     * -Aktualisiert die Anzeige
      */
     public void act() {
         update();
     }
+    
     /**
-     * Aktualisiert das Bild:
-     * -Entfernt das Bild
+     * Aktualisiert das Bild:<br>
+     * -Löscht aktuelles Bild<br>
+     * -Erstellt das neue Bild mit Icon und Text
      */
     public void update() {
         money = world.getMoney();

@@ -7,8 +7,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Monster extends Enemy {
     /**
-     * Constructor für Monster
-     * Legt Attribute fest
+     * Constructor für Monster:<br>
+     * -Setzt Leben, Schaden und Namen
      */
     public Monster() {
         //config
@@ -18,9 +18,9 @@ public class Monster extends Enemy {
     }
     
     /**
-     * Act-Methode von Monster:
-     * -Aktualisiert das Bild alle 5 acts
-     * -Überprüft, ob der Gegner tot ist und entfernt ihn
+     * Act-Methode von Monster:<br>
+     * -Aktualisiert das Bild alle 5 acts<br>
+     * -Überprüft, ob der Gegner tot ist und entfernt ihn<br>
      * -Sucht den nächsten Weg und bewegt sich
      */
     public void act() {

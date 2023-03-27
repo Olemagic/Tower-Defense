@@ -2,6 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Mainmenu zur Auswahl des Levels
+ * @author Ole, Oskar, Shikri, Timo
+ * @version 1.0
  */
 public class MainMenu extends World {
     Levelbutton Level1 = new Levelbutton(1); //Button für Level 1

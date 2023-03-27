@@ -11,8 +11,9 @@ public class Health extends GUI{
     private GreenfootImage image = new GreenfootImage(150, 50); //Das Bild
     
     /**
-     * Constructor für Health:
+     * Constructor für Health:<br>
      * -Speichert die Welt und erstellt das Bild
+     * @param level Die Welt
      */
     public Health(Level level) {
         world = level;
@@ -20,7 +21,7 @@ public class Health extends GUI{
     }
     
     /**
-     * Act-Methode von Health:
+     * Act-Methode von Health:<br>
      * -Aktualisiert die Anzeige
      */
     public void act() {
@@ -28,8 +29,8 @@ public class Health extends GUI{
     }
     
     /**
-     * Aktualisiert das Bild:
-     * -Löscht aktuelles Bild
+     * Aktualisiert das Bild:<br>
+     * -Löscht aktuelles Bild<br>
      * -Erstellt das neue Bild mit Icon und Text
      */
     public void update() {

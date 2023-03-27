@@ -9,15 +9,16 @@ public class Levelbutton extends GUI {
     private int levelNumber; //Levelnummer
     
     /**
-     * Constructor für Levelbutton:
-     * -speichert das Level, für welches der Button funktioniert
+     * Constructor für Levelbutton:<br>
+     * -speichert die Nummer des Levels, für welches der Button funktioniert
+     * @param pLevelNumber  Nummer des Levels
      */
     public Levelbutton(int pLevelNumber) {
         levelNumber = pLevelNumber;
     }
     
     /**
-     * Act-Methode für Levelbutton:
+     * Act-Methode für Levelbutton:<br>
      * -Beim anklicken, wird je nach dem gespeicherten Level die Welt gesetzt
      */
     public void act() {

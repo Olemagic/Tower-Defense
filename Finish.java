@@ -8,8 +8,8 @@ import java.util.List;  // (List)
  */
 public class Finish extends Actor {
     /**
-     * Act-Methode von Finish:
-     * -Sammelt alle Gegner, die das Objekt berühren in einer Liste
+     * Act-Methode von Finish:<br>
+     * -Sammelt alle Gegner, die das Objekt berühren in einer Liste<br>
      * -Überprüft für jeden Gegner, ob er am Rand der Welt ist und entfernt ihn
      */
     public void act() {

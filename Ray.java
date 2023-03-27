@@ -11,9 +11,11 @@ public class Ray extends Actor
     private Towers tower; //Der Turm
     
     /**
-     * Constructor von Ray:
-     * -Setzt den Gegner
+     * Constructor von Ray:<br>
+     * -Setzt den Gegner<br>
      * -Setzt den Turm
+     * @param pEnemy    Der Gegner, für den überprüft wird
+     * @param pTower    Der Turm, für den überprüft wird
      */
     public Ray(Enemy pEnemy, Towers pTower) {
         enemy = pEnemy;
@@ -21,12 +23,12 @@ public class Ray extends Actor
     }
     
     /**
-     * Gibt zurück, ob der Gegner der Turm sehen kann
-     * Funktionsweise:
-     * -Berechnet die Länge des Rays (Entfernung zwischen Gegner und Turm)
-     * -Berechnet den Winkel in welchem die beiden zueinander sind über Arctan
-     * -Platziert den Ray in der Mitte und setzt die Rotation
-     * -Erstellt das Bild passender Länge
+     * Gibt zurück, ob der Gegner der Turm sehen kann<br>
+     * Funktionsweise:<br>
+     * -Berechnet die Länge des Rays (Entfernung zwischen Gegner und Turm)<br>
+     * -Berechnet den Winkel in welchem die beiden zueinander sind über Arctan<br>
+     * -Platziert den Ray in der Mitte und setzt die Rotation<br>
+     * -Erstellt das Bild passender Länge<br>
      * -Überprüft, ob der Ray ein Obstacle berührt
      * @return true, wenn ein Obstacle zwischen Gegner und Turm sind
      * @return false, wenn kein Obstacle zwischen Gegner und Turm sind
@@ -54,6 +56,7 @@ public class Ray extends Actor
     
     /**
      * Erstellt das Bild
+     * @param distance  Distanz zwischen Turm und Gegner/Länge des Bildes
      */
     public void createImage(int distance) {
         setImage(new GreenfootImage(distance, 50));

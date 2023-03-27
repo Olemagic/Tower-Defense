@@ -7,8 +7,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Tank extends Enemy {
     /**
-     * Constructor für Tank
-     * Legt Attribute fest
+     * Constructor für Tank:<br>
+     * -Setzt Leben, Schaden und Namen
      */
     public Tank() {
         //config
@@ -18,9 +18,9 @@ public class Tank extends Enemy {
     }
     
     /**
-     * Act-Methode von Tank:
-     * -Aktualisiert das Bild alle 5 acts
-     * -Überprüft, ob der Gegner tot ist und entfernt ihn
+     * Act-Methode von Tank:<br>
+     * -Aktualisiert das Bild alle 5 acts<br>
+     * -Überprüft, ob der Gegner tot ist und entfernt ihn<br>
      * -Sucht den nächsten Weg und bewegt sich
      */
     public void act() {

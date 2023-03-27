@@ -7,17 +7,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Pseudo_Tripleshot_Tower extends Pseudo_Towers {
     /**
-     * Constructor von Pseudo_Tripleshot_Tower:
+     * Constructor von Pseudo_Tripleshot_Tower:<br>
      * -Setzt die Welt
+     * @param level Die Welt
      */
     public Pseudo_Tripleshot_Tower(Level level) {
         world = level;
     }
     
     /**
-     * Act-methode von Pseudo_Tripleshot_Tower:
-     * -Setzt die Position auf die Stelle, an der die Maus ist
-     * -Platziert einen Tripleshot-Tower, wenn geklickt wird(links)
+     * Act-methode von Pseudo_Tripleshot_Tower:<br>
+     * -Setzt die Position auf die Stelle, an der die Maus ist<br>
+     * -Platziert einen Tripleshot-Tower, wenn geklickt wird(links)<br>
      * -Bricht ab, wenn geklickt wird(rechts)
      */
     public void act() {

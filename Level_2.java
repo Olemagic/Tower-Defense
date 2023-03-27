@@ -9,9 +9,9 @@ public class Level_2 extends Level {
     private Path[] paths = new Path[37]; //Wegobjekte
 
     /**
-     * Constructor für Level 2
-     * Setzt Leben auf 150
-     * Setzt Geld auf 1000
+     * Constructor für Level_2:<br>
+     * -Setzt Leben und Geld<br>
+     * -Baut das Level auf
      */
     public Level_2() {
         super();

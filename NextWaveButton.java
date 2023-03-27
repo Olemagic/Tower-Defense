@@ -14,15 +14,7 @@ public class NextWaveButton extends GUI {
     private GreenfootImage speedbuttonspeeded = new GreenfootImage("speedbutton-speeded.png"); //Bild vom Button bei Welle und beschleunigt
     
     /**
-     * Constructor von NextWaveButton:
-     * Legt das Bild fest
-     */
-    public NextWaveButton() {
-        setImage(playbutton);
-    }
-    
-    /**
-     * Act-Methode von NextWaveButton:
+     * Act-Methode von NextWaveButton:<br>
      * -Bei Klick: Startet die nächste Welle oder ändert die Geschwindigkeit
      */
     public void act() {
@@ -52,7 +44,7 @@ public class NextWaveButton extends GUI {
     }
     
     /**
-     * Setzt das Bild zurück auf keine Welle
+     * Setzt das Bild zurück auf keine Welle aktiv
      */
     public void resetImage() {
         setImage(playbutton);

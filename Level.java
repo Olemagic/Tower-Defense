@@ -23,9 +23,9 @@ public class Level extends World {
     protected int health; //Aktuelle Leben
     
     /**
-     * Constructor für Level
-     * Setzt Weltgröße auf 1600x900
-     * Setzt Speed auf 50
+     * Constructor für Level:<br>
+     * -Setzt Weltgröße auf 1600x900<br>
+     * -Setzt Speed auf 50
      */
     public Level() {    
         super(1600, 900, 1); 
@@ -57,8 +57,8 @@ public class Level extends World {
     }
     
     /**
-     * Act-Methode:
-     * Überprüft, ob noch Leben vorhanden sind und ruft sonst lose-Methode auf
+     * Act-Methode:<br>
+     * -Überprüft, ob noch Leben vorhanden sind und ruft sonst lose-Methode auf
      */
     public void act() {
         if (health < 1) {
