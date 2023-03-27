@@ -1,19 +1,33 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+/**
+ * Geldanzeige in der Welt
+ * @author Ole, Oskar, Shikri, Timo
+ * @version 1.0
+ */
 public class Money extends GUI{
-    private Level world;
-    private int money;
-    private GreenfootImage image = new GreenfootImage(150, 50);
+    private Level world; //Die Welt
+    private int money; //Das Geld
+    private GreenfootImage image = new GreenfootImage(150, 50); //Das Bild
     
+    /**
+     * Constructor für Money:
+     * -Speichert die Welt und erstellt das Bild
+     */
     public Money(Level level) {
         world = level;
         update();
     }
     
+    /**
+     * Act-Methode von Money
+     */
     public void act() {
         update();
     }
-    
+    /**
+     * Aktualisiert das Bild:
+     * -Entfernt das Bild
+     */
     public void update() {
         money = world.getMoney();
         
