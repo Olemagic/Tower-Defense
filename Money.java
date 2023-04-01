@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Money extends GUI{
     private Level world; //Die Welt
     private int money; //Das Geld
-    private GreenfootImage image = new GreenfootImage(150, 50); //Das Bild
+    private GreenfootImage image = new GreenfootImage(250, 50); //Das Bild
     
     /**
      * Constructor für Money:<br>

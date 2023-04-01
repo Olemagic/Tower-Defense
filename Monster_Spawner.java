@@ -118,4 +118,24 @@ public class Monster_Spawner extends Actor {
             }
         }
     }
+    
+    /**
+     * Spawnt Tanks: Wenn die angegebene Wartezeit gewartet wurde und noch Tanks gespawnt werden müssen, wird ein Monster and den Spawnpunkt gesetzt und gedreht<br>
+     * Wenn alle Tanks gespawnt wurden, wird die Wellennummer erhöht
+     * @param amountOfEnemies   Anzahl an Gegnern, die gespawnt werden sollen
+     * @param waitTime  Zeit, die zwischen den einzelnen Gegner gewartet wird
+     */
+    public void spawnSpeed(int amountOfEnemies, int waitTime) {
+        if(numberOfActs%waitTime == 0 && amountOfEnemies>amountOfEnemiesSpawned) {
+            Enemy newMonster = new Speed();
+            getWorld().addObject(newMonster, spawnX, spawnY);
+            newMonster.setRotation(spawnRotation);
+            amountOfEnemiesSpawned++;
+        }
+        if(amountOfEnemies==amountOfEnemiesSpawned) {
+            amountOfEnemiesSpawned = 0;
+            currentWave++;
+            waveTimeOut = true;
+        }
+    }
 }

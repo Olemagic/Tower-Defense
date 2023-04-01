@@ -50,17 +50,13 @@ public class Level extends World {
         addObject(monsterSpawner, 0, 0);
         addObject(nextWaveButton, 1550, 850);
         addObject(healthicon, 80, 25);
-        addObject(moneyicon, 210, 25);
+        addObject(moneyicon, 260, 25);
         
         addObject(firetowericon, 50, 850);
         addObject(tripleshottowericon, 150, 850);
         addObject(sprayertowericon, 250, 850);
         addObject(snipertowericon, 350, 850);
         addObject(ninjatowericon, 450, 850);
-        
-        for(int i = 0; i<1; i++) {
-            addObject(new Fire_Tower(), 700, 500);
-        }
     }
     
     /**
