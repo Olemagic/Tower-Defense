@@ -24,12 +24,12 @@ public class Towers extends Actor {
         }
         int max = 0;
         Enemy farthestEnemy = null;
-        for (int i = 0; i < enemiesInRange.size(); i++) {
-            int currentEnemyDistanceMoved = enemiesInRange.get(i).getDistanceMoved();
+        for (Enemy enemy : enemiesInRange) {
+            int currentEnemyDistanceMoved = enemy.getDistanceMoved();
             if(max < currentEnemyDistanceMoved) {
-                if(hasLineOfSight(enemiesInRange.get(i))) {
+                if(hasLineOfSight(enemy)) {
                     max = currentEnemyDistanceMoved;
-                    farthestEnemy = enemiesInRange.get(i);
+                    farthestEnemy = enemy;
                 }
             }
         }

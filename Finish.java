@@ -14,13 +14,13 @@ public class Finish extends Actor {
      */
     public void act() {
         List<Enemy> enemies = getIntersectingObjects(Enemy.class);
-        for (int i = 0; i < enemies.size(); i++) {
-            if (!enemies.get(i).isAtEdge()) {return;}
+        for (Enemy enemy : enemies) {
+            if (!enemy.isAtEdge()) {return;}
             
-            int damage = enemies.get(i).getDamage();
+            int damage = enemy.getDamage();
             Level world = (Level) getWorld();
             world.removeHealth(damage);
-            world.removeObject(enemies.get(i));
+            world.removeObject(enemy);
         }
     }
 }

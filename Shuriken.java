@@ -66,12 +66,12 @@ public class Shuriken extends Bullets {
         }
         int max = 0;
         Enemy farthestEnemy = null;
-        for (int i = 0; i < enemiesInRange.size(); i++) {
-            int currentEnemyDistanceMoved = enemiesInRange.get(i).getDistanceMoved();
+        for (Enemy enemy : enemiesInRange) {
+            int currentEnemyDistanceMoved = enemy.getDistanceMoved();
             if(max < currentEnemyDistanceMoved) {
-                if(hasLineOfSight(enemiesInRange.get(i))) {
+                if(hasLineOfSight(enemy)) {
                     max = currentEnemyDistanceMoved;
-                    farthestEnemy = enemiesInRange.get(i);
+                    farthestEnemy = enemy;
                 }
             }
         }
@@ -89,16 +89,17 @@ public class Shuriken extends Bullets {
         boolean progress = true;
         double nearestDistance = 2000;
         double distance;
-        for (int i = 0; i < nearEnemies.size(); i++) {
-            for (int j = 0; j<hitEnemies.length; j++) {
-                if(hitEnemies[j] == nearEnemies.get(i)) {
+        for (Enemy enemy : nearEnemies) {
+            for (Enemy hitenemy : hitEnemies) {
+                if(hitenemy == enemy) {
                     progress = false;
                 }
             }
+            
             if(progress) {
-                    distance = getDistance(nearEnemies.get(i));
-                    if (distance < nearestDistance && hasLineOfSight(nearEnemies.get(i))) {
-                        nearestEnemy = nearEnemies.get(i);
+                    distance = getDistance(enemy);
+                    if (distance < nearestDistance && hasLineOfSight(enemy)) {
+                        nearestEnemy = enemy;
                         nearestDistance = distance;
                     }
             }

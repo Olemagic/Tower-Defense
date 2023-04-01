@@ -6,5 +6,5 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1.0
  */
 public class Obstacle extends Actor {
-    
+    //  https://www.youtube.com/watch?v=dQw4w9WgXcQ
 }
