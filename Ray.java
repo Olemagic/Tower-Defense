@@ -45,6 +45,10 @@ public class Ray extends Actor
         int distance = (int) Math.hypot(distanceX, distanceY);
         int rotation = (int) (Math.atan2(distanceY, distanceX) * 180 / Math.PI);
         
+        if(distance==0) {
+            return true;
+        }
+        
         setLocation(distanceX/2+actorX, distanceY/2+actorY);
         createImage(distance);
         setRotation(rotation);

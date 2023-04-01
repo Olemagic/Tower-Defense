@@ -1,4 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Objekt, dass die Monster in die Welt spawnt
@@ -9,10 +13,24 @@ public class Monster_Spawner extends Actor {
     private int spawnX; //X-Koordinate des Spawnpunkts
     private int spawnY; //Y-Koordinate des Spawnpunkts
     private int spawnRotation; //Drehung für Spawnpunkte, die nicht am linken Rand sind
-    private int amountOfEnemiesSpawned = 0; //Zähler fürs spawnen
-    private int numberOfActs = 0; //Zähler fürs Timing
-    private int currentWave = 1; //Die aktuelle Welle
-    private boolean waveTimeOut = true; //Speichert, ob aktuell eine Welle aktiv ist
+    
+    public boolean waveTimeOut = true;
+    private boolean test = false;
+    public int currentWave = -1;
+    
+    private List<List<Map<String, Integer>>> waves = new ArrayList<List<Map<String, Integer>>>();
+    
+    int numberOfMonsters = 0;
+    int numberOfTanks = 0;
+    int numberOfSpeeds = 0;
+    
+    int MonsterTotalDelay = 0;
+    int TankTotalDelay = 0;
+    int SpeedTotalDelay = 0;
+    
+    int MonsterSpawnDelay = 0;
+    int TankSpawnDelay = 0;
+    int SpeedSpawnDelay = 0;
     
     /**
      * Constructor für Monster_Spawner:<br>
@@ -23,6 +41,26 @@ public class Monster_Spawner extends Actor {
         spawnX = start.getX();
         spawnY = start.getY();
         spawnRotation = start.getRotation() + 90;
+        
+        for (int i = 0; i < 3; i++) {
+            List<Map<String, Integer>> row = new ArrayList<Map<String, Integer>>();
+            for (int j = 0; j < 3; j++) {
+                row.add(new HashMap<String, Integer>());
+            }
+            waves.add(row);
+        }
+        
+        waves.get(0).get(0).put("totalDelay", 0);
+        waves.get(0).get(0).put("number", 200);
+        waves.get(0).get(0).put("spawnDelay", 10);
+        
+        waves.get(0).get(1).put("totalDelay", 700);
+        waves.get(0).get(1).put("number", 200);
+        waves.get(0).get(1).put("spawnDelay", 20);
+    
+        waves.get(0).get(2).put("totalDelay", 6000);
+        waves.get(0).get(2).put("number", 10);
+        waves.get(0).get(2).put("spawnDelay", 5);
     }
     
     /**
@@ -31,75 +69,53 @@ public class Monster_Spawner extends Actor {
      * -Wenn keine Welle aktiv: Setzt das Bild vom Wavebutton zurück
      */
     public void act() {
-        if (!waveTimeOut) {
-            waveGeneration(currentWave);
-            numberOfActs++;
+        if(!waveTimeOut) {
+            MonsterGeneration();
+            TankGeneration();
+            test = false;
+            /*SpeedGeneration();*/
         }
-        else if (getWorld().getObjects(Enemy.class).isEmpty()){
+        else if (getWorld().getObjects(Enemy.class).isEmpty() && !test){
             getWorld().getObjects(NextWaveButton.class).get(0).resetImage();
+            waveTimeOut=true;
+            MonsterTotalDelay=0;
+            TankTotalDelay=0;
+            numberOfMonsters=0;
+            numberOfTanks=0;
+            test = true;
         }
     }
     
-    /**
-     * Deaktiviert den Wellen Timeout
-     * @see NextWaveButton#act()
-     */
     public void disableTimeOut() {
         waveTimeOut = false;
+        currentWave++;
     }
     
-    /**
-     * Konfiguriert die Wellen<br>
-     * Für mehr Wellen einfach weitere Cases hinzufügen
-     * @param waveNumber    Aktuelle Welle
-     */
-    public void waveGeneration(int waveNumber) {
-        switch(waveNumber){
-            case 1: spawnTank(15, 100); break;
-            case 2: spawnMonster(30, 50); break;
-            case 3: spawnTank(30, 50); break;
-            case 4: spawnMonster(60, 20); break;
-            case 5: spawnTank(300, 10); break;
-        }
-    }
-    
-    /**
-     * Spawnt Monster: Wenn die angegebene Wartezeit gewartet wurde und noch Monster gespawnt werden müssen, wird ein Monster and den Spawnpunkt gesetzt und gedreht<br>
-     * Wenn alle Monster gespawnt wurden, wird die Wellennummer erhöht
-     * @param amountOfEnemies   Anzahl an Gegnern, die gespawnt werden sollen
-     * @param waitTime  Zeit, die zwischen den einzelnen Gegner gewartet wird
-     */
-    public void spawnMonster(int amountOfEnemies, int waitTime) {
-        if(numberOfActs%waitTime == 0 && amountOfEnemies>amountOfEnemiesSpawned) {
-            Enemy newMonster = new Monster();
-            getWorld().addObject(newMonster, spawnX, spawnY);
-            newMonster.setRotation(spawnRotation);
-            amountOfEnemiesSpawned++;
-        }
-        if(amountOfEnemies==amountOfEnemiesSpawned) {
-            amountOfEnemiesSpawned = 0;
-            currentWave++;
-            waveTimeOut = true;
+    private void MonsterGeneration() {
+        MonsterTotalDelay++;
+        if(MonsterTotalDelay >= waves.get(currentWave).get(0).get("totalDelay")) {
+            MonsterSpawnDelay++;
+            if(MonsterSpawnDelay >= waves.get(currentWave).get(0).get("spawnDelay")&& numberOfMonsters < waves.get(currentWave).get(0).get("number")) {
+                MonsterSpawnDelay=0;
+                Enemy newMonster = new Monster();
+                getWorld().addObject(newMonster, spawnX, spawnY);
+                newMonster.setRotation(spawnRotation);
+                numberOfMonsters++;
+            }
         }
     }
     
-    /**
-     * Spawnt Tanks: Wenn die angegebene Wartezeit gewartet wurde und noch Tanks gespawnt werden müssen, wird ein Monster and den Spawnpunkt gesetzt und gedreht<br>
-     * Wenn alle Tanks gespawnt wurden, wird die Wellennummer erhöht
-     * @param amountOfEnemies   Anzahl an Gegnern, die gespawnt werden sollen
-     * @param waitTime  Zeit, die zwischen den einzelnen Gegner gewartet wird
-     */
-    public void spawnTank(int amountOfEnemies, int waitTime) {
-        if(numberOfActs%waitTime == 0 && amountOfEnemies>amountOfEnemiesSpawned) {
-            Enemy newMonster = new Tank();
-            getWorld().addObject(newMonster, spawnX, spawnY);
-            newMonster.setRotation(spawnRotation);
-            amountOfEnemiesSpawned++;
-        }
-        if(amountOfEnemies==amountOfEnemiesSpawned) {
-            amountOfEnemiesSpawned = 0;
-            currentWave++;
-            waveTimeOut = true;
+    private void TankGeneration() {
+        TankTotalDelay++;
+        if(TankTotalDelay >= waves.get(currentWave).get(1).get("totalDelay")) {
+            TankSpawnDelay++;
+            if(TankSpawnDelay >= waves.get(currentWave).get(1).get("spawnDelay") && numberOfTanks < waves.get(currentWave).get(1).get("number")) {
+                TankSpawnDelay=0;
+                Enemy newTank = new Tank();
+                getWorld().addObject(newTank, spawnX, spawnY);
+                newTank.setRotation(spawnRotation);
+                numberOfTanks++;
+            }
         }
     }
 }
