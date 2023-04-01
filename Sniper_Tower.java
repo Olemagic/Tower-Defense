@@ -38,7 +38,7 @@ public class Sniper_Tower extends Towers {
      * @param target    Gegner, auf den geschossen wird
      */
     public void shoot(Enemy target) {
-        int rotation = getRotationToTarget(target);
+        int rotation = getRotationToTarget(target) + 90;
         
         setRotation(rotation);
         target.removeHealth(damage);

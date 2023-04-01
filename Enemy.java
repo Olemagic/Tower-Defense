@@ -99,7 +99,7 @@ public class Enemy extends Actor {
      * Ändert das Bild auf das nächste in der Animation
      */
     public void updateImage() {
-        setImage(enemyName+"/"+currentImage+".png");
+        setImage(enemyName + "/" + currentImage + ".png");
         currentImage++;
         if (currentImage == 19) currentImage = 0;
     }
