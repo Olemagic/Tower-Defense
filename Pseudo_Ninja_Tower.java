@@ -1,43 +1,26 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Pseudo_Ninja_Tower here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Ninja-Tower, der beim Platzieren der Maus folgt
+ * @author Ole, Oskar, Shikri, Timo
+ * @version 1.0
  */
-public class Pseudo_Ninja_Tower extends Pseudo_Towers
-{
+public class Pseudo_Ninja_Tower extends Pseudo_Towers {
     /**
      * Constructor von Pseudo_Ninja_Tower:<br>
      * -Setzt die Welt
      * @param level Die Welt
      */
-    
-    public Pseudo_Ninja_Tower(Level level) {
-        world = level;
+    public Pseudo_Ninja_Tower() {
+        cost = 200;
     }
     
     /**
-     * Act-methode von Pseudo_Ninja_Tower:<br>
-     * -Setzt die Position auf die Stelle, an der die Maus ist<br>
-     * -Platziert einen Fire-Tower, wenn geklickt wird(links)<br>
-     * -Bricht ab, wenn geklickt wird(rechts)
+     * Platziert einen Ninja_Tower
+     * @param x X-Koordinate
+     * @param y Y-Koordinate
      */
-    public void act() {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-        if(mouse != null) {
-            setLocation(mouse.getX(), mouse.getY());
-            
-            if(mouse.getButton()==1 && getOneIntersectingObject(Actor.class) == null) {
-                world.addObject(new Ninja_Tower(), mouse.getX(), mouse.getY());
-                world.removeMoney(200);
-                world.removeObject(this);
-            }
-            
-            if(mouse.getButton()==3) {
-                world.removeObject(this);
-            }
-        }
+    public void placeTower(int x, int y) {
+        getWorld().addObject(new Ninja_Tower(), x, y);
     }
 }

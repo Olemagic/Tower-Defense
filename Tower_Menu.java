@@ -6,5 +6,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1.0
  */
 public class Tower_Menu extends GUI {
-    protected Level world; //Die Welt
+    protected int cost; //Kosten des Turms
+    
+    /**
+     * Act-Methode von Tower_Menu:<br>
+     * -Erstellt einen Pseudo-Turm, wenn angeklickt und genug Geld verfügbar ist
+     */
+    public void act() {
+        if(Greenfoot.mouseClicked(this) && ((Level) getWorld()).getMoney()>=cost) {
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+            placePseudo_Tower(mouse.getX(), mouse.getY());
+        }
+    }
+    
+    /**
+     * Platziert einen Pseudo_Tower(Wird erst in Subclasses definiert)
+     * @param x X-Koordinate
+     * @param y Y-Koordinate
+     */
+    public void placePseudo_Tower(int x, int y) {}
 }

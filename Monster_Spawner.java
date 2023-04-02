@@ -66,7 +66,6 @@ public class Monster_Spawner extends Actor {
         }
         else if (getWorld().getObjects(Enemy.class).isEmpty()){
             getWorld().getObjects(NextWaveButton.class).get(0).resetImage();
-            waveTimeOut = true;
             MonsterTotalDelay = 0;
             TankTotalDelay = 0;
             SpeedTotalDelay = 0;
@@ -132,6 +131,13 @@ public class Monster_Spawner extends Actor {
     public void disableTimeOut() {
         waveTimeOut = false;
         currentWave++;
+    }
+    
+    /**
+     * Stoppt das Spawning
+     */
+    public void enableTimeout() {
+        waveTimeOut = true;
     }
     
     /**

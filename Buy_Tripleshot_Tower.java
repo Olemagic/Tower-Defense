@@ -11,18 +11,16 @@ public class Buy_Tripleshot_Tower extends Tower_Menu {
      * -Setzt die Welt
      * @param level Die Welt
      */
-    public Buy_Tripleshot_Tower(Level level) {
-        world = level;
+    public Buy_Tripleshot_Tower() {
+        cost = 600;
     }
     
     /**
-     * Act-Methode von Buy_Tripleshot_Tower:<br>
-     * -Erstellt einen Pseudo-Turm, wenn angeklickt und genug Geld verfügbar ist
+     * Platziert einen Pseudo_Tripleshot_Tower
+     * @param x X-Koordinate
+     * @param y Y-Koordinate
      */
-    public void act() {
-        if(Greenfoot.mouseClicked(this) && world.getMoney()>=600) {
-            MouseInfo mouse = Greenfoot.getMouseInfo();
-            getWorld().addObject(new Pseudo_Tripleshot_Tower(world), mouse.getX(), mouse.getY());
-        }
+    public void placePseudo_Tower(int x, int y) {
+        getWorld().addObject(new Pseudo_Tripleshot_Tower(), x, y);
     }
 }

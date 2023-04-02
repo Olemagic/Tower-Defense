@@ -11,18 +11,16 @@ public class Buy_Fire_Tower extends Tower_Menu {
      * -Setzt die Welt
      * @param level Die Welt
      */
-    public Buy_Fire_Tower(Level level) {
-        world = level;
+    public Buy_Fire_Tower() {
+        cost = 200;
     }
     
     /**
-     * Act-Methode von Buy_Fire_Tower:<br>
-     * -Erstellt einen Pseudo-Turm, wenn angeklickt und genug Geld verfügbar ist
+     * Platziert einen Pseudo_Fire_Tower
+     * @param x X-Koordinate
+     * @param y Y-Koordinate
      */
-    public void act() {
-        if(Greenfoot.mouseClicked(this) && world.getMoney()>=200) {
-            MouseInfo mouse = Greenfoot.getMouseInfo();
-            getWorld().addObject(new Pseudo_Fire_Tower(world), mouse.getX(), mouse.getY());
-        }
+    public void placePseudo_Tower(int x, int y) {
+        getWorld().addObject(new Pseudo_Fire_Tower(), x, y);
     }
 }

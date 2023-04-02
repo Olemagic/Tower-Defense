@@ -11,30 +11,16 @@ public class Pseudo_Fire_Tower extends Pseudo_Towers {
      * -Setzt die Welt
      * @param level Die Welt
      */
-    public Pseudo_Fire_Tower(Level level) {
-        world = level;
+    public Pseudo_Fire_Tower() {
+        cost = 200;
     }
-
+    
     /**
-     * Act-methode von Pseudo_Fire_Tower:<br>
-     * -Setzt die Position auf die Stelle, an der die Maus ist<br>
-     * -Platziert einen Fire-Tower, wenn geklickt wird(links)<br>
-     * -Bricht ab, wenn geklickt wird(rechts)
+     * Platziert einen Fire_Tower
+     * @param x X-Koordinate
+     * @param y Y-Koordinate
      */
-    public void act() {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-        if(mouse != null) {
-            setLocation(mouse.getX(), mouse.getY());
-            
-            if(mouse.getButton()==1 && getOneIntersectingObject(Actor.class) == null) {
-                world.addObject(new Fire_Tower(), mouse.getX(), mouse.getY());
-                world.removeMoney(200);
-                world.removeObject(this);
-            }
-            
-            if(mouse.getButton()==3) {
-                world.removeObject(this);
-            }
-        }
+    public void placeTower(int x, int y) {
+        getWorld().addObject(new Fire_Tower(), x, y);
     }
 }

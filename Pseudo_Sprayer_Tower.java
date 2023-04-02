@@ -11,30 +11,16 @@ public class Pseudo_Sprayer_Tower extends Pseudo_Towers {
      * -Setzt die Welt
      * @param level Die Welt
      */
-    public Pseudo_Sprayer_Tower(Level level) {
-        world = level;
+    public Pseudo_Sprayer_Tower() {
+        cost = 500;
     }
     
     /**
-     * Act-methode von Pseudo_Sprayer_Tower:<br>
-     * -Setzt die Position auf die Stelle, an der die Maus ist<br>
-     * -Platziert einen Sprayer-Tower, wenn geklickt wird(links)<br>
-     * -Bricht ab, wenn geklickt wird(rechts)
+     * Platziert einen Sprayer_Tower
+     * @param x X-Koordinate
+     * @param y Y-Koordinate
      */
-    public void act() {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-        if(mouse != null) {
-            setLocation(mouse.getX(), mouse.getY());
-            
-            if(mouse.getButton()==1 && getOneIntersectingObject(Actor.class) == null) {
-                world.addObject(new Sprayer_Tower(), mouse.getX(), mouse.getY());
-                world.removeMoney(500);
-                world.removeObject(this);
-            }
-            
-            if(mouse.getButton()==3) {
-                world.removeObject(this);
-            }
-        }
+    public void placeTower(int x, int y) {
+        getWorld().addObject(new Sprayer_Tower(), x, y);
     }
 }

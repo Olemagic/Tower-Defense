@@ -11,30 +11,16 @@ public class Pseudo_Sniper_Tower extends Pseudo_Towers {
      * -Setzt die Welt
      * @param level Die Welt
      */
-    public Pseudo_Sniper_Tower(Level level) {
-        world = level;
+    public Pseudo_Sniper_Tower() {
+        cost = 400;
     }
-    
+
     /**
-     * Act-methode von Pseudo_Sniper_Tower:<br>
-     * -Setzt die Position auf die Stelle, an der die Maus ist<br>
-     * -Platziert einen Sniper-Tower, wenn geklickt wird(links)<br>
-     * -Bricht ab, wenn geklickt wird(rechts)
+     * Platziert einen Sniper_Tower
+     * @param x X-Koordinate
+     * @param y Y-Koordinate
      */
-    public void act() {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-        if(mouse != null) {
-            setLocation(mouse.getX(), mouse.getY());
-            
-            if(mouse.getButton()==1 && getOneIntersectingObject(Actor.class) == null) {
-                world.addObject(new Sniper_Tower(), mouse.getX(), mouse.getY());
-                world.removeMoney(400);
-                world.removeObject(this);
-            }
-            
-            if(mouse.getButton()==3) {
-                world.removeObject(this);
-            }
-        }
+    public void placeTower(int x, int y) {
+        getWorld().addObject(new Sniper_Tower(), x, y);
     }
 }

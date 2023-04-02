@@ -41,11 +41,11 @@ public class Level extends World {
         healthicon = new Health(this);
         moneyicon = new Money(this);
         
-        firetowericon = new Buy_Fire_Tower(this);
-        tripleshottowericon = new Buy_Tripleshot_Tower(this);
-        sprayertowericon = new Buy_Sprayer_Tower(this);
-        snipertowericon = new Buy_Sniper_Tower(this);
-        ninjatowericon = new Buy_Ninja_Tower(this);
+        firetowericon = new Buy_Fire_Tower();
+        tripleshottowericon = new Buy_Tripleshot_Tower();
+        sprayertowericon = new Buy_Sprayer_Tower();
+        snipertowericon = new Buy_Sniper_Tower();
+        ninjatowericon = new Buy_Ninja_Tower();
         
         addObject(monsterSpawner, 0, 0);
         addObject(nextWaveButton, 1550, 850);
@@ -65,6 +65,7 @@ public class Level extends World {
      */
     public void act() {
         if (health < 1) {
+            health = 0;
             lose();
         }
     }
@@ -80,7 +81,15 @@ public class Level extends World {
      * Wird aufgerufen, wenn alle Leben abgezogen wurden
      */
     public void lose() {
+        monsterSpawner.enableTimeout();
         
+        for (Enemy enemy : getObjects(Enemy.class)) {
+            removeObject(enemy);
+        }
+        
+        GreenfootImage losescreen = new GreenfootImage("Lose.png");
+        
+        getBackground().drawImage(losescreen, 200, 112);
     }
     
     /**
