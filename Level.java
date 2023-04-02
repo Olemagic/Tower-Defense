@@ -74,7 +74,17 @@ public class Level extends World {
      * Wird bei Sieg aufgerufen
      */
     public void win() {
+        Screen screen = new Screen();
+        addObject(screen, 800, 450);
         
+        screen.setImage(new GreenfootImage("Win.png"));
+
+        nextWaveButton.setGameOver();
+        firetowericon.setGameOver();
+        tripleshottowericon.setGameOver();
+        sprayertowericon.setGameOver();
+        snipertowericon.setGameOver();
+        ninjatowericon.setGameOver();
     }
     
     /**
@@ -87,9 +97,17 @@ public class Level extends World {
             removeObject(enemy);
         }
         
-        GreenfootImage losescreen = new GreenfootImage("Lose.png");
+        Screen screen = new Screen();
+        addObject(screen, 800, 450);
         
-        getBackground().drawImage(losescreen, 200, 112);
+        screen.setImage(new GreenfootImage("Lose.png"));
+
+        nextWaveButton.setGameOver();
+        firetowericon.setGameOver();
+        tripleshottowericon.setGameOver();
+        sprayertowericon.setGameOver();
+        snipertowericon.setGameOver();
+        ninjatowericon.setGameOver();
     }
     
     /**

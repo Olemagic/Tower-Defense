@@ -8,6 +8,7 @@ import java.util.List;  // (List)
  */
 public class NextWaveButton extends GUI {
     private boolean isSpeeded = false; //Geschwindigkeitszustand
+    private boolean gameOver = false; //Spielzustand
     
     private GreenfootImage playbutton = new GreenfootImage("playbutton.png"); //Bild vom Button bei keiner aktuellen Welle
     private GreenfootImage speedbutton = new GreenfootImage("speedbutton.png"); //Bild vom Button bei Welle und nicht beschleunigt
@@ -18,6 +19,8 @@ public class NextWaveButton extends GUI {
      * -Bei Klick: Startet die nächste Welle oder ändert die Geschwindigkeit
      */
     public void act() {
+        if (gameOver) return;
+
         if(Greenfoot.mouseClicked(this)) {
             if(getImage() == playbutton) {
                 if (isSpeeded) {
@@ -48,5 +51,12 @@ public class NextWaveButton extends GUI {
      */
     public void resetImage() {
         setImage(playbutton);
+    }
+
+    /**
+     * Setzt den Spielzustand auf beendet
+     */
+    public void setGameOver() {
+        gameOver = true;
     }
 }

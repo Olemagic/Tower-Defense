@@ -1,8 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.List;
-import java.util.Map;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;  // (List)
+import java.util.Map;   // (Map)
+import java.util.ArrayList; // (ArrayList)
+import java.util.HashMap;   // (HashMap)
 
 /**
  * Objekt, dass die Monster in die Welt spawnt
@@ -16,6 +16,7 @@ public class Monster_Spawner extends Actor {
     
     private boolean waveTimeOut = true; //Welle aktiv
     private int currentWave = -1; //Aktuelle Welle
+    private int numberOfWaves;
     
     private List<List<Map<String, Integer>>> waves = new ArrayList<List<Map<String, Integer>>>(); //Zweidimensionale Liste mit Hashmaps
     
@@ -55,7 +56,7 @@ public class Monster_Spawner extends Actor {
      */
     public void act() {
         if(!waveTimeOut) {
-            if (numberOfMonsters >= waves.get(currentWave).get(0).get("number") && numberOfTanks >= waves.get(currentWave).get(1).get("number") && numberOfSpeeds >= waves.get(currentWave).get(2).get("number")) {
+            if (numberOfMonsters >= waves.get(currentWave).get(0).get("number") && numberOfTanks >= waves.get(currentWave).get(1).get("number") && numberOfSpeeds >= waves.get(currentWave).get(2).get("number")) {                
                 waveTimeOut = true;
                 return;
             }
@@ -65,6 +66,10 @@ public class Monster_Spawner extends Actor {
             SpeedGeneration();
         }
         else if (getWorld().getObjects(Enemy.class).isEmpty()){
+            if (currentWave == numberOfWaves - 1) {
+                ((Level) getWorld()).win();
+            }
+            
             getWorld().getObjects(NextWaveButton.class).get(0).resetImage();
             MonsterTotalDelay = 0;
             TankTotalDelay = 0;
@@ -79,7 +84,8 @@ public class Monster_Spawner extends Actor {
      * Config für die Wellen
      */
     public void waveconfig() {
-        int numberOfWaves = 3;
+        numberOfWaves = 3;
+        
         for (int i = 0; i < numberOfWaves; i++) {
             List<Map<String, Integer>> row = new ArrayList<Map<String, Integer>>();
             for (int j = 0; j < numberOfWaves; j++) {
@@ -130,7 +136,7 @@ public class Monster_Spawner extends Actor {
      */
     public void disableTimeOut() {
         waveTimeOut = false;
-        currentWave++;
+        if (currentWave < numberOfWaves - 1) currentWave++;
     }
     
     /**
