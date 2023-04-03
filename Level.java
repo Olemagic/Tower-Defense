@@ -22,6 +22,7 @@ public class Level extends World {
     
     protected int money; //Aktuelles Geld
     protected int health; //Aktuelle Leben
+    protected boolean gameOver = false; //Spielzustand
     
     /**
      * Constructor für Level:<br>
@@ -64,8 +65,9 @@ public class Level extends World {
      * -Überprüft, ob noch Leben vorhanden sind und ruft sonst lose-Methode auf
      */
     public void act() {
-        if (health < 1) {
+        if (!gameOver && health < 1) {
             health = 0;
+            gameOver = true;
             lose();
         }
     }

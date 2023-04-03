@@ -13,6 +13,7 @@ public class Monster_Spawner extends Actor {
     private int spawnX; //X-Koordinate des Spawnpunkts
     private int spawnY; //Y-Koordinate des Spawnpunkts
     private int spawnRotation; //Drehung für Spawnpunkte, die nicht am linken Rand sind
+    private boolean gameOver = false; //Spielzustand
     
     private boolean waveTimeOut = true; //Welle aktiv
     private int currentWave = -1; //Aktuelle Welle
@@ -55,7 +56,7 @@ public class Monster_Spawner extends Actor {
      * -Wenn keine Welle aktiv: Setzt das Bild vom Wavebutton zurück
      */
     public void act() {
-        if(!waveTimeOut) {
+        if(!waveTimeOut && !gameOver) {
             if (numberOfMonsters >= waves.get(currentWave).get(0).get("number") && numberOfTanks >= waves.get(currentWave).get(1).get("number") && numberOfSpeeds >= waves.get(currentWave).get(2).get("number")) {                
                 waveTimeOut = true;
                 return;
@@ -65,9 +66,10 @@ public class Monster_Spawner extends Actor {
             TankGeneration();
             SpeedGeneration();
         }
-        else if (getWorld().getObjects(Enemy.class).isEmpty()){
+        else if (getWorld().getObjects(Enemy.class).isEmpty() && !gameOver){
             if (currentWave == numberOfWaves - 1) {
                 ((Level) getWorld()).win();
+                gameOver = true;
             }
             
             getWorld().getObjects(NextWaveButton.class).get(0).resetImage();
