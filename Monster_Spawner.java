@@ -17,7 +17,10 @@ public class Monster_Spawner extends Actor {
     
     private boolean waveTimeOut = true; //Welle aktiv
     private int currentWave = -1; //Aktuelle Welle
-    private int numberOfWaves;
+    
+    private int[][][] waveConfig = {{{0, 20, 200}, {4000, 40, 100}, {8000, 10000, 1}}, {{0, 200, 10}, {700, 200, 20}, {6000, 10, 5}}, {{0, 200, 10}, {700, 200, 20}, {6000, 10, 5}}};
+    private int numberOfWaves = waveConfig.length;
+    
     
     private List<List<Map<String, Integer>>> waves = new ArrayList<List<Map<String, Integer>>>(); //Zweidimensionale Liste mit Hashmaps
     
@@ -86,7 +89,6 @@ public class Monster_Spawner extends Actor {
      * Config für die Wellen
      */
     public void waveconfig() {
-        numberOfWaves = 3;
         
         for (int i = 0; i < numberOfWaves; i++) {
             List<Map<String, Integer>> row = new ArrayList<Map<String, Integer>>();
@@ -96,41 +98,19 @@ public class Monster_Spawner extends Actor {
             waves.add(row);
         }
         
-        waves.get(0).get(0).put("totalDelay", 0);
-        waves.get(0).get(0).put("number", 200);
-        waves.get(0).get(0).put("spawnDelay", 10);
+        for(int i=0; i<numberOfWaves; i++) {
+            waves.get(i).get(0).put("totalDelay", waveConfig[i][0][0]);
+            waves.get(i).get(0).put("number", waveConfig[i][0][1]);
+            waves.get(i).get(0).put("spawnDelay", waveConfig[i][0][2]);
+            
+            waves.get(i).get(1).put("totalDelay", waveConfig[i][1][0]);
+            waves.get(i).get(1).put("number", waveConfig[i][1][1]);
+            waves.get(i).get(1).put("spawnDelay", waveConfig[i][1][2]);
         
-        waves.get(0).get(1).put("totalDelay", 700);
-        waves.get(0).get(1).put("number", 200);
-        waves.get(0).get(1).put("spawnDelay", 20);
-    
-        waves.get(0).get(2).put("totalDelay", 6000);
-        waves.get(0).get(2).put("number", 10);
-        waves.get(0).get(2).put("spawnDelay", 5);
-        
-        waves.get(1).get(0).put("totalDelay", 0);
-        waves.get(1).get(0).put("number", 200);
-        waves.get(1).get(0).put("spawnDelay", 10);
-
-        waves.get(1).get(1).put("totalDelay", 700);
-        waves.get(1).get(1).put("number", 200);
-        waves.get(1).get(1).put("spawnDelay", 20);
-
-        waves.get(1).get(2).put("totalDelay", 6000);
-        waves.get(1).get(2).put("number", 10);
-        waves.get(1).get(2).put("spawnDelay", 5);
-
-        waves.get(2).get(0).put("totalDelay", 0);
-        waves.get(2).get(0).put("number", 200);
-        waves.get(2).get(0).put("spawnDelay", 10);
-
-        waves.get(2).get(1).put("totalDelay", 700);
-        waves.get(2).get(1).put("number", 200);
-        waves.get(2).get(1).put("spawnDelay", 20);
-    
-        waves.get(2).get(2).put("totalDelay", 6000);
-        waves.get(2).get(2).put("number", 10);
-        waves.get(2).get(2).put("spawnDelay", 5);
+            waves.get(i).get(2).put("totalDelay", waveConfig[i][2][0]);
+            waves.get(i).get(2).put("number", waveConfig[i][2][1]);
+            waves.get(i).get(2).put("spawnDelay", waveConfig[i][2][2]);
+        }
     }
     
     /**
