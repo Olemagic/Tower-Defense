@@ -19,6 +19,7 @@ public class Tower_Menu extends GUI {
         if(Greenfoot.mouseClicked(this) && ((Level) getWorld()).getMoney()>=cost) {
             MouseInfo mouse = Greenfoot.getMouseInfo();
             placePseudo_Tower(mouse.getX(), mouse.getY());
+            
         }
     }
     

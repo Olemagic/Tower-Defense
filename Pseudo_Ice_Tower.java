@@ -13,6 +13,7 @@ public class Pseudo_Ice_Tower extends Pseudo_Towers {
      */
     public Pseudo_Ice_Tower() {
         cost = 400;
+        range = 200;
     }
     
     /**

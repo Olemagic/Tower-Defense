@@ -13,6 +13,7 @@ public class Pseudo_Sprayer_Tower extends Pseudo_Towers {
      */
     public Pseudo_Sprayer_Tower() {
         cost = 500;
+        range = 200;
     }
     
     /**

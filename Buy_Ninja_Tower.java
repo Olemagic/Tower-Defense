@@ -21,6 +21,8 @@ public class Buy_Ninja_Tower extends Tower_Menu {
      * @param y Y-Koordinate
      */
     public void placePseudo_Tower(int x, int y) {
-        getWorld().addObject(new Pseudo_Ninja_Tower(), x, y);
+        Pseudo_Ninja_Tower tower = new Pseudo_Ninja_Tower();
+        getWorld().addObject(tower, x, y);
+        tower.addCircle(x, y);
     }
 }

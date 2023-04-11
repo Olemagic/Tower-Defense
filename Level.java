@@ -26,7 +26,7 @@ public class Level extends World {
     public Level() {    
         super(1600, 900, 1); 
         Greenfoot.setSpeed(50);
-        setPaintOrder(GUI.class, Pseudo_Towers.class);
+        setPaintOrder(GUI.class, Pseudo_Towers.class, Tower_Menu.class, NextWaveButton.class);
     }
     
     /**

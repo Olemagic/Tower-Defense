@@ -21,6 +21,8 @@ public class Buy_Fire_Tower extends Tower_Menu {
      * @param y Y-Koordinate
      */
     public void placePseudo_Tower(int x, int y) {
-        getWorld().addObject(new Pseudo_Fire_Tower(), x, y);
+        Pseudo_Fire_Tower tower = new Pseudo_Fire_Tower();
+        getWorld().addObject(tower, x, y);
+        tower.addCircle(x, y);
     }
 }

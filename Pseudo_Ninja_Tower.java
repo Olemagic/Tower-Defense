@@ -13,6 +13,7 @@ public class Pseudo_Ninja_Tower extends Pseudo_Towers {
      */
     public Pseudo_Ninja_Tower() {
         cost = 200;
+        range = 400;
     }
     
     /**

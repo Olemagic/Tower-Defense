@@ -21,6 +21,8 @@ public class Buy_Ice_Tower extends Tower_Menu {
      * @param y Y-Koordinate
      */
     public void placePseudo_Tower(int x, int y) {
-        getWorld().addObject(new Pseudo_Ice_Tower(), x, y);
+        Pseudo_Ice_Tower tower = new Pseudo_Ice_Tower();
+        getWorld().addObject(tower, x, y);
+        tower.addCircle(x, y);
     }
 }
