@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Parent-class für alle Level, gemeinsame Methoden und Attribute
  * @author Ole, Oskar, Shikri, Timo
@@ -13,12 +12,7 @@ public class Level extends World {
     protected Health healthicon; //Lebensanzeige
     protected Money moneyicon; //Geldanzeige
     
-    //Buttons zum Tower-Kaufen
-    protected Buy_Fire_Tower firetowericon;
-    protected Buy_Tripleshot_Tower tripleshottowericon;
-    protected Buy_Sniper_Tower snipertowericon;
-    protected Buy_Sprayer_Tower sprayertowericon;
-    protected Buy_Ninja_Tower ninjatowericon;
+    protected Tower_Menu [] towericons = {new Buy_Fire_Tower(), new Buy_Tripleshot_Tower(), new Buy_Sniper_Tower(), new Buy_Ninja_Tower(), new Buy_Ice_Tower()};
     
     protected int money; //Aktuelles Geld
     protected int health; //Aktuelle Leben
@@ -32,6 +26,7 @@ public class Level extends World {
     public Level() {    
         super(1600, 900, 1); 
         Greenfoot.setSpeed(50);
+        setPaintOrder(GUI.class, Pseudo_Towers.class);
     }
     
     /**
@@ -42,22 +37,14 @@ public class Level extends World {
         healthicon = new Health(this);
         moneyicon = new Money(this);
         
-        firetowericon = new Buy_Fire_Tower();
-        tripleshottowericon = new Buy_Tripleshot_Tower();
-        sprayertowericon = new Buy_Sprayer_Tower();
-        snipertowericon = new Buy_Sniper_Tower();
-        ninjatowericon = new Buy_Ninja_Tower();
-        
         addObject(monsterSpawner, 0, 0);
         addObject(nextWaveButton, 1550, 850);
         addObject(healthicon, 80, 25);
         addObject(moneyicon, 260, 25);
         
-        addObject(firetowericon, 50, 850);
-        addObject(tripleshottowericon, 150, 850);
-        addObject(sprayertowericon, 250, 850);
-        addObject(snipertowericon, 350, 850);
-        addObject(ninjatowericon, 450, 850);
+        for(int i = 0; i<towericons.length; i++) {
+            addObject(towericons[i], 50+i*100, 850);
+        }
     }
     
     /**
@@ -82,11 +69,9 @@ public class Level extends World {
         screen.setImage(new GreenfootImage("Win.png"));
 
         nextWaveButton.setGameOver();
-        firetowericon.setGameOver();
-        tripleshottowericon.setGameOver();
-        sprayertowericon.setGameOver();
-        snipertowericon.setGameOver();
-        ninjatowericon.setGameOver();
+        for(Tower_Menu currentIcon : towericons) {
+            currentIcon.setGameOver();
+        }
     }
     
     /**
@@ -104,12 +89,9 @@ public class Level extends World {
         
         screen.setImage(new GreenfootImage("Lose.png"));
 
-        nextWaveButton.setGameOver();
-        firetowericon.setGameOver();
-        tripleshottowericon.setGameOver();
-        sprayertowericon.setGameOver();
-        snipertowericon.setGameOver();
-        ninjatowericon.setGameOver();
+        for(Tower_Menu currentIcon : towericons) {
+            currentIcon.setGameOver();
+        }
     }
     
     /**

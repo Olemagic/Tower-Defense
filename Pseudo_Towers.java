@@ -19,7 +19,7 @@ public class Pseudo_Towers extends GUI {
         if(mouse != null) {
             setLocation(mouse.getX(), mouse.getY());
             
-            if(mouse.getButton()==1 && getOneIntersectingObject(Actor.class) == null) {
+            if(mouse.getButton()==1 && getOneIntersectingObject(Path.class) == null && getOneIntersectingObject(Towers.class) == null && getOneIntersectingObject(Obstacle.class) == null) {
                 placeTower(mouse.getX(), mouse.getY());
                 ((Level) getWorld()).removeMoney(cost);
                 getWorld().removeObject(this);

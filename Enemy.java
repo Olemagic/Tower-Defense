@@ -7,11 +7,37 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Enemy extends Actor {
     protected int health; //Leben
     protected int damage; //Schaden beim Erreichen vom Ziel
+    protected int moneyOnDeath; //Geld, welches der Gegner beim Tod fallen lässt
+    protected int speed; //Geschwindigkeit (
+    protected int freezeTime = 0; //übrige Frierzeit
+    
     protected String enemyName; //Name(für Animation)
     
-    protected int distanceMoved; //Bereits zurückgelegte Strecke
-    protected int numberOfActs = 51; //Wichtig fürs Wegfinden und Animation
+    protected int distanceMoved = 50; //Bereits zurückgelegte Strecke
+    protected int numberOfActs = 1; //Wichtig fürs Wegfinden und Animation
     protected int currentImage; //Zähler für Animation
+    
+    public void act() {
+        if (health <= 0) {
+            ((Level) getWorld()).addMoney(moneyOnDeath);
+            getWorld().removeObject(this);
+            return;
+        }
+        
+        if(freezeTime==0) {
+            if (numberOfActs%5 == 0) {
+                updateImage();
+            }
+            if(distanceMoved%100 < speed){
+                findNextPath();
+            }
+            move(speed);
+            distanceMoved += speed;
+        }
+        else {
+            freezeTime--;
+        }
+    }
     /**
      * Entfernt Leben
      * @param damage    Entfernt den Wert vom Leben
@@ -102,5 +128,9 @@ public class Enemy extends Actor {
         setImage(enemyName + "/" + currentImage + ".png");
         currentImage++;
         if (currentImage == 19) currentImage = 0;
+    }
+    
+    public void freeze() {
+        freezeTime = 250;
     }
 }

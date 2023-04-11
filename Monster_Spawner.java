@@ -18,7 +18,7 @@ public class Monster_Spawner extends Actor {
     private boolean waveTimeOut = true; //Welle aktiv
     private int currentWave = -1; //Aktuelle Welle
     
-    private int[][][] waveConfig = {{{0, 20, 200}, {4000, 40, 100}, {8000, 10000, 1}}, {{0, 200, 10}, {700, 200, 20}, {6000, 10, 5}}, {{0, 200, 10}, {700, 200, 20}, {6000, 10, 5}}};
+    private int[][][] waveConfig = {{{0, 20, 200}, {4000, 40, 100}, {8000, 200, 20}}, {{0, 200, 10}, {700, 200, 20}, {6000, 10, 5}}, {{0, 200, 10}, {700, 200, 20}, {6000, 10, 5}}};
     private int numberOfWaves = waveConfig.length;
     
     
