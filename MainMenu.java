@@ -6,8 +6,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1.0
  */
 public class MainMenu extends World {
-    Levelbutton Level1 = new Levelbutton(1); //Button für Level 1
-    Levelbutton Level2 = new Levelbutton(2); //Button für Level 2
+    Levelbutton Level1 = new Levelbutton(); //Button für Level 1
+    Levelbutton Level2 = new Levelbutton(); //Button für Level 2
     
     /**
      * Constructor für Mainmenu
@@ -17,5 +17,18 @@ public class MainMenu extends World {
         
         addObject(Level1, 427, 600);
         addObject(Level2, 1173, 600);
+    }
+    
+    /**
+     * Act-Methode für MainMenu:<br>
+     * -Beim anklicken der Levelbuttons, wird das jeweilige Level erstellt
+     */
+    public void act() {
+        if (Greenfoot.mouseClicked(Level1)) {
+            Greenfoot.setWorld(new Level_1());
+        }
+        else if (Greenfoot.mouseClicked(Level2)) {
+            Greenfoot.setWorld(new Level_2());
+        }
     }
 }

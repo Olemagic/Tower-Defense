@@ -6,5 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1.0
  */
 public class Screen extends GUI {
-    //cool
+    public void act() {
+        if (Greenfoot.mouseClicked(this)) {
+            Greenfoot.setWorld(new MainMenu());
+        }
+    }
 }
