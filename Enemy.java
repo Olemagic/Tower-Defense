@@ -14,9 +14,15 @@ public class Enemy extends Actor {
     protected String enemyName; //Name(für Animation)
     
     protected int distanceMoved = 50; //Bereits zurückgelegte Strecke
-    protected int numberOfActs = 1; //Wichtig fürs Wegfinden und Animation
     protected int currentImage; //Zähler für Animation
     
+    /**
+     * Act-Methode von Enemy:<br>
+     * -Überprüft, ob der Gegner keine Leben mehr hat und entfernt ihn<br>
+     * -Animation<br>
+     * -Timing fürs Weg-finden<br>
+     * -Bewegung der Gegner
+     */
     public void act() {
         if (health <= 0) {
             ((Level) getWorld()).addMoney(moneyOnDeath);
@@ -25,7 +31,7 @@ public class Enemy extends Actor {
         }
         
         if(freezeTime==0) {
-            if (numberOfActs%5 == 0) {
+            if (distanceMoved%5 == 0) {
                 updateImage();
             }
             if(distanceMoved%100 < speed){
@@ -38,6 +44,7 @@ public class Enemy extends Actor {
             freezeTime--;
         }
     }
+    
     /**
      * Entfernt Leben
      * @param damage    Entfernt den Wert vom Leben
@@ -65,6 +72,12 @@ public class Enemy extends Actor {
      * @return Zurückgelegte Strecke
      */
     public int getDistanceMoved() {return distanceMoved;}
+    
+    /**
+     * Setzt die zurückgelegte Strecke
+     * @param distance  Strecke, die gesetzt werden soll
+     */
+    public void setDistanceMoved(int distance) {distanceMoved = distance;}
     
     /**
      * Sucht den nächsten Weg und dreht sich in die Richtung
@@ -130,6 +143,9 @@ public class Enemy extends Actor {
         if (currentImage == 19) currentImage = 0;
     }
     
+    /**
+     * Friert den Gegner für 250 Acts
+     */
     public void freeze() {
         freezeTime = 250;
     }

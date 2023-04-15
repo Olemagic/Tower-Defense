@@ -18,8 +18,18 @@ public class Monster_Spawner extends Actor {
     private boolean waveTimeOut = true; //Welle aktiv
     private int currentWave = -1; //Aktuelle Welle
     
-    private int[][][] waveConfig = {{{0, 20, 200}, {4000, 40, 100}, {8000, 200, 20}}, {{0, 200, 10}, {700, 200, 20}, {6000, 10, 5}}, {{0, 200, 10}, {700, 200, 20}, {6000, 10, 5}}};
-    private int numberOfWaves = waveConfig.length;
+    /**
+     * Wellenconfig im Format: {
+     * Welle 1: {{totaldelay, number, spawndelay}(Monster), {totaldelay, number, spawndelay}(Tank), {totaldelay, number, spawndelay}(Speed), {totaldelay, number, spawndelay}(BigTank)},
+     * Welle 2: {{totaldelay, number, spawndelay}(Monster), {totaldelay, number, spawndelay}(Tank), {totaldelay, number, spawndelay}(Speed), {totaldelay, number, spawndelay}(BigTank)},
+     * Welle 3: {{totaldelay, number, spawndelay}(Monster), {totaldelay, number, spawndelay}(Tank), {totaldelay, number, spawndelay}(Speed), {totaldelay, number, spawndelay}(BigTank)},
+     */
+    private int[][][] waveConfig = {
+    {{12000, 20, 200}, {4000, 40, 100}, {8000, 200, 20}, {0, 20, 200}},
+    {{12000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 20, 200}},
+    {{12000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 20, 200}}};
+    
+    private int numberOfWaves = waveConfig.length; //Anzahl der Wellen
     
     
     private List<List<Map<String, Integer>>> waves = new ArrayList<List<Map<String, Integer>>>(); //Zweidimensionale Liste mit Hashmaps
@@ -28,16 +38,19 @@ public class Monster_Spawner extends Actor {
     private int numberOfMonsters = 0;
     private int numberOfTanks = 0;
     private int numberOfSpeeds = 0;
+    private int numberOfBigTanks = 0;
     
     //Zeitabstand bis zum ersten Spawn
     private int MonsterTotalDelay = 0;
     private int TankTotalDelay = 0;
     private int SpeedTotalDelay = 0;
+    private int BigTankTotalDelay = 0;
     
     //Zeitabstand zwischen Spawns
     private int MonsterSpawnDelay = 0;
     private int TankSpawnDelay = 0;
     private int SpeedSpawnDelay = 0;
+    private int BigTankSpawnDelay = 0;
     
     /**
      * Constructor für Monster_Spawner:<br>
@@ -60,7 +73,9 @@ public class Monster_Spawner extends Actor {
      */
     public void act() {
         if(!waveTimeOut && !gameOver) {
-            if (numberOfMonsters >= waves.get(currentWave).get(0).get("number") && numberOfTanks >= waves.get(currentWave).get(1).get("number") && numberOfSpeeds >= waves.get(currentWave).get(2).get("number")) {                
+            if (numberOfMonsters >= waves.get(currentWave).get(0).get("number")
+            && numberOfTanks >= waves.get(currentWave).get(1).get("number")
+            && numberOfSpeeds >= waves.get(currentWave).get(2).get("number")) {                
                 waveTimeOut = true;
                 return;
             }
@@ -68,6 +83,7 @@ public class Monster_Spawner extends Actor {
             MonsterGeneration();
             TankGeneration();
             SpeedGeneration();
+            BigTankGeneration();
         }
         else if (getWorld().getObjects(Enemy.class).isEmpty() && !gameOver){
             if (currentWave == numberOfWaves - 1) {
@@ -79,20 +95,22 @@ public class Monster_Spawner extends Actor {
             MonsterTotalDelay = 0;
             TankTotalDelay = 0;
             SpeedTotalDelay = 0;
+            BigTankTotalDelay = 0;
             numberOfMonsters = 0;
             numberOfTanks = 0;
             numberOfSpeeds = 0;
+            numberOfBigTanks = 0;
         }
     }
     
     /**
-     * Config für die Wellen
+     * Macht aus dem Wave Array eine zweidimensionale Liste mit Hashmaps
      */
     public void waveconfig() {
         
-        for (int i = 0; i < numberOfWaves; i++) {
+        for (int i = 0; i < 4; i++) {
             List<Map<String, Integer>> row = new ArrayList<Map<String, Integer>>();
-            for (int j = 0; j < numberOfWaves; j++) {
+            for (int j = 0; j < 4; j++) {
                 row.add(new HashMap<String, Integer>());
             }
             waves.add(row);
@@ -110,6 +128,10 @@ public class Monster_Spawner extends Actor {
             waves.get(i).get(2).put("totalDelay", waveConfig[i][2][0]);
             waves.get(i).get(2).put("number", waveConfig[i][2][1]);
             waves.get(i).get(2).put("spawnDelay", waveConfig[i][2][2]);
+            
+            waves.get(i).get(3).put("totalDelay", waveConfig[i][3][0]);
+            waves.get(i).get(3).put("number", waveConfig[i][3][1]);
+            waves.get(i).get(3).put("spawnDelay", waveConfig[i][3][2]);
         }
     }
     
@@ -135,7 +157,8 @@ public class Monster_Spawner extends Actor {
         MonsterTotalDelay++;
         if(MonsterTotalDelay >= waves.get(currentWave).get(0).get("totalDelay")) {
             MonsterSpawnDelay++;
-            if(MonsterSpawnDelay >= waves.get(currentWave).get(0).get("spawnDelay")&& numberOfMonsters < waves.get(currentWave).get(0).get("number")) {
+            if(MonsterSpawnDelay >= waves.get(currentWave).get(0).get("spawnDelay")
+            && numberOfMonsters < waves.get(currentWave).get(0).get("number")) {
                 MonsterSpawnDelay=0;
                 Enemy newMonster = new Monster();
                 getWorld().addObject(newMonster, spawnX, spawnY);
@@ -152,7 +175,8 @@ public class Monster_Spawner extends Actor {
         TankTotalDelay++;
         if(TankTotalDelay >= waves.get(currentWave).get(1).get("totalDelay")) {
             TankSpawnDelay++;
-            if(TankSpawnDelay >= waves.get(currentWave).get(1).get("spawnDelay") && numberOfTanks < waves.get(currentWave).get(1).get("number")) {
+            if(TankSpawnDelay >= waves.get(currentWave).get(1).get("spawnDelay")
+            && numberOfTanks < waves.get(currentWave).get(1).get("number")) {
                 TankSpawnDelay=0;
                 Enemy newTank = new Tank();
                 getWorld().addObject(newTank, spawnX, spawnY);
@@ -169,12 +193,31 @@ public class Monster_Spawner extends Actor {
         SpeedTotalDelay++;
         if(SpeedTotalDelay >= waves.get(currentWave).get(2).get("totalDelay")) {
             SpeedSpawnDelay++;
-            if(SpeedSpawnDelay >= waves.get(currentWave).get(2).get("spawnDelay") && numberOfSpeeds < waves.get(currentWave).get(2).get("number")) {
+            if(SpeedSpawnDelay >= waves.get(currentWave).get(2).get("spawnDelay")
+            && numberOfSpeeds < waves.get(currentWave).get(2).get("number")) {
                 SpeedSpawnDelay=0;
                 Enemy newSpeed = new Speed();
                 getWorld().addObject(newSpeed, spawnX, spawnY);
                 newSpeed.setRotation(spawnRotation);
                 numberOfSpeeds++;
+            }
+        }
+    }
+    
+    /**
+     * Spawnt BigTanks
+     */
+    public void BigTankGeneration() {
+        BigTankTotalDelay++;
+        if(BigTankTotalDelay >= waves.get(currentWave).get(3).get("totalDelay")) {
+            BigTankSpawnDelay++;
+            if(BigTankSpawnDelay >= waves.get(currentWave).get(3).get("spawnDelay")
+            && numberOfBigTanks < waves.get(currentWave).get(3).get("number")) {
+                BigTankSpawnDelay=0;
+                Enemy newBigTank = new BigTank();
+                getWorld().addObject(newBigTank, spawnX, spawnY);
+                newBigTank.setRotation(spawnRotation);
+                numberOfBigTanks++;
             }
         }
     }

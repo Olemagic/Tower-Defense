@@ -5,3 +5,7 @@
 #BlueJ files I think
 
 *.ctxt
+
+#IntelliJ files
+/.idea
+/Tower Defense.iml
