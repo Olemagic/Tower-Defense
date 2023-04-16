@@ -11,8 +11,9 @@ public class Level extends World {
     protected NextWaveButton nextWaveButton = new NextWaveButton(); //Button zum Starten
     protected Health healthicon; //Lebensanzeige
     protected Money moneyicon; //Geldanzeige
+    protected Tower_Menu_Placeholder towermenuplaceholder;
     
-    protected Tower_Menu [] towericons = {new Buy_Fire_Tower(), new Buy_Tripleshot_Tower(), new Buy_Sniper_Tower(), new Buy_Ninja_Tower(), new Buy_Ice_Tower()};
+    protected Tower_Menu [] towericons = {new Buy_Fire_Tower(), new Buy_Tripleshot_Tower(), new Buy_Sprayer_Tower(), new Buy_Sniper_Tower(), new Buy_Ninja_Tower(), new Buy_Ice_Tower()};
     
     protected int money; //Aktuelles Geld
     protected int health; //Aktuelle Leben
@@ -26,7 +27,7 @@ public class Level extends World {
     public Level() {    
         super(1600, 900, 1); 
         Greenfoot.setSpeed(50);
-        setPaintOrder(GUI.class, Pseudo_Towers.class, Tower_Menu.class, NextWaveButton.class);
+        setPaintOrder(GUI.class, Pseudo_Towers.class, Tower_Menu.class, NextWaveButton.class, Tower_Menu_Placeholder.class);
     }
     
     /**
@@ -36,11 +37,13 @@ public class Level extends World {
         monsterSpawner = new Monster_Spawner(start);
         healthicon = new Health(this);
         moneyicon = new Money(this);
+        towermenuplaceholder = new Tower_Menu_Placeholder();
         
         addObject(monsterSpawner, 0, 0);
         addObject(nextWaveButton, 1550, 850);
         addObject(healthicon, 80, 25);
         addObject(moneyicon, 260, 25);
+        addObject(towermenuplaceholder, 800, 850);
         
         for(int i = 0; i<towericons.length; i++) {
             addObject(towericons[i], 50+i*100, 850);

@@ -33,7 +33,7 @@ public class BigTank extends OnDeathEnemy {
         monster1.setDistanceMoved(distanceMoved);
         monster2.setDistanceMoved(distanceMoved);
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 20; i++) {
             monster2.act();
         }
     }

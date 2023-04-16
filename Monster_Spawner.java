@@ -14,6 +14,7 @@ public class Monster_Spawner extends Actor {
     private final int spawnY; //Y-Koordinate des Spawnpunkts
     private final int spawnRotation; //Drehung für Spawnpunkte, die nicht am linken Rand sind
     private boolean gameOver = false; //Spielzustand
+    private boolean onetick = true;
     
     private boolean waveTimeOut = true; //Welle aktiv
     private int currentWave = -1; //Aktuelle Welle
@@ -26,7 +27,7 @@ public class Monster_Spawner extends Actor {
      */
     private final int[][][] waveConfig = {
     {{12000, 20, 200}, {4000, 40, 100}, {8000, 200, 20}, {0, 20, 200}},
-    {{12000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 20, 200}},
+    {{12000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 100, 40}},
     {{12000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 20, 200}}};
     
     private final int numberOfWaves = waveConfig.length; //Anzahl der Wellen
@@ -90,7 +91,10 @@ public class Monster_Spawner extends Actor {
                 ((Level) getWorld()).win();
                 gameOver = true;
             }
-            
+            if(onetick && currentWave !=-1) {
+                ((Level) getWorld()).addMoney(500);
+                onetick = false;
+            }
             getWorld().getObjects(NextWaveButton.class).get(0).resetImage();
             MonsterTotalDelay = 0;
             TankTotalDelay = 0;
@@ -140,6 +144,7 @@ public class Monster_Spawner extends Actor {
      */
     public void disableTimeOut() {
         waveTimeOut = false;
+        onetick = true;
         if (currentWave < numberOfWaves - 1) currentWave++;
     }
     

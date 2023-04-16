@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Pseudo_Towers extends GUI {
     protected int cost; //Kosten des Turms
     protected int range; //Reichweite des Turms
+    protected int thickness;
+    protected Tower_Footprint towerfootprint;
     protected Circle circle; //Der Kreis
     
     /**
@@ -23,8 +25,8 @@ public class Pseudo_Towers extends GUI {
             int mouseY = mouse.getY();
             setLocation(mouseX, mouseY);
             circle.setLocation(mouseX, mouseY);
-            
-            if(mouse.getButton()==1 && mouseY < 780 && getOneIntersectingObject(Path.class) == null && getOneIntersectingObject(Towers.class) == null && getOneIntersectingObject(Obstacle.class) == null) {
+            towerfootprint.setLocation(mouseX, mouseY);
+            if(mouse.getButton()==1 && towerfootprint.isNotColliding()) {
                 placeTower(mouseX, mouseY);
                 ((Level) getWorld()).removeMoney(cost);
                 getWorld().removeObject(circle);
@@ -41,6 +43,8 @@ public class Pseudo_Towers extends GUI {
     public void addCircle(int x, int y) {
         circle = new Circle(range*2);
         getWorld().addObject(circle, x, y);
+        towerfootprint = new Tower_Footprint(thickness*2);
+        getWorld().addObject(towerfootprint, x, y);
     }
     
     /**

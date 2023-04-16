@@ -11,6 +11,7 @@ public class Pseudo_Sniper_Tower extends Pseudo_Towers {
     public Pseudo_Sniper_Tower() {
         cost = 400;
         range = 1;
+        thickness = 30;
     }
 
     /**

@@ -11,6 +11,7 @@ public class Pseudo_Fire_Tower extends Pseudo_Towers {
     public Pseudo_Fire_Tower() {
         cost = 200;
         range = 300;
+        thickness = 35;
     }
     
     /**

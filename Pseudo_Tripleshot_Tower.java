@@ -11,6 +11,7 @@ public class Pseudo_Tripleshot_Tower extends Pseudo_Towers {
     public Pseudo_Tripleshot_Tower() {
         cost = 600;
         range = 300;
+        thickness = 20;
     }
     
     /**
