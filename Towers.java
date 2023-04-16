@@ -45,8 +45,7 @@ public class Towers extends Actor {
     public int getRotationToTarget(Enemy target) {
         int distanceX = target.getX() - getX();
         int distanceY = target.getY() - getY();
-        int rotation = (int) (Math.atan2(distanceY, distanceX) * 180 / Math.PI);
-        return rotation;
+        return (int) (Math.atan2(distanceY, distanceX) * 180 / Math.PI);
     }
     
     /**

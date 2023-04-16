@@ -10,29 +10,29 @@ import java.util.HashMap;   // (HashMap)
  * @version 1.0
  */
 public class Monster_Spawner extends Actor {
-    private int spawnX; //X-Koordinate des Spawnpunkts
-    private int spawnY; //Y-Koordinate des Spawnpunkts
-    private int spawnRotation; //Drehung für Spawnpunkte, die nicht am linken Rand sind
+    private final int spawnX; //X-Koordinate des Spawnpunkts
+    private final int spawnY; //Y-Koordinate des Spawnpunkts
+    private final int spawnRotation; //Drehung für Spawnpunkte, die nicht am linken Rand sind
     private boolean gameOver = false; //Spielzustand
     
     private boolean waveTimeOut = true; //Welle aktiv
     private int currentWave = -1; //Aktuelle Welle
     
     /**
-     * Wellenconfig im Format: {
+     * Waveconfig im Format: {
      * Welle 1: {{totaldelay, number, spawndelay}(Monster), {totaldelay, number, spawndelay}(Tank), {totaldelay, number, spawndelay}(Speed), {totaldelay, number, spawndelay}(BigTank)},
      * Welle 2: {{totaldelay, number, spawndelay}(Monster), {totaldelay, number, spawndelay}(Tank), {totaldelay, number, spawndelay}(Speed), {totaldelay, number, spawndelay}(BigTank)},
      * Welle 3: {{totaldelay, number, spawndelay}(Monster), {totaldelay, number, spawndelay}(Tank), {totaldelay, number, spawndelay}(Speed), {totaldelay, number, spawndelay}(BigTank)},
      */
-    private int[][][] waveConfig = {
+    private final int[][][] waveConfig = {
     {{12000, 20, 200}, {4000, 40, 100}, {8000, 200, 20}, {0, 20, 200}},
     {{12000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 20, 200}},
     {{12000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 20, 200}}};
     
-    private int numberOfWaves = waveConfig.length; //Anzahl der Wellen
+    private final int numberOfWaves = waveConfig.length; //Anzahl der Wellen
     
     
-    private List<List<Map<String, Integer>>> waves = new ArrayList<List<Map<String, Integer>>>(); //Zweidimensionale Liste mit Hashmaps
+    private final List<List<Map<String, Integer>>> waves = new ArrayList<>(); //Zweidimensionale Liste mit Hashmaps
     
     //Anzahl an gespawnten Monstern
     private int numberOfMonsters = 0;
@@ -68,7 +68,7 @@ public class Monster_Spawner extends Actor {
     
     /**
      * Act-Methode von Monster_Spawner:<br>
-     * -Wenn Welle aktiv: Spawnt eventuell Monster, siehe {@link #waveGeneration(int)}<br>
+     * -Wenn Welle aktiv: Spawnt eventuell Monster<br>
      * -Wenn keine Welle aktiv: Setzt das Bild vom Wavebutton zurück
      */
     public void act() {
@@ -109,9 +109,9 @@ public class Monster_Spawner extends Actor {
     public void waveconfig() {
         
         for (int i = 0; i < 4; i++) {
-            List<Map<String, Integer>> row = new ArrayList<Map<String, Integer>>();
+            List<Map<String, Integer>> row = new ArrayList<>();
             for (int j = 0; j < 4; j++) {
-                row.add(new HashMap<String, Integer>());
+                row.add(new HashMap<>());
             }
             waves.add(row);
         }

@@ -95,17 +95,11 @@ public class Level extends World {
     }
     
     /**
-     * Gibt aktuelles Geld zurücck
+     * Gibt aktuelles Geld zurück
      * @return aktuelles Geld
      */
     public int getMoney() {return money;}
-    
-    /**
-     * Setzt aktuelles Geld
-     * @param pMoney    Neuer Wert
-     */
-    public void setMoney(int pMoney) {money = pMoney;}
-    
+
     /**
      * Fügt Geld hinzu
      * @param pMoney    Geld, dass hinzugefügt wird
@@ -131,14 +125,8 @@ public class Level extends World {
     public void setHealth(int pHealth) {health = pHealth;}
     
     /**
-     * Fügt Leben hinzu
-     * @param pHealth   Leben, dass hinzugefügt wird
-     */
-    public void addHealth(int pHealth) {health += pHealth;}
-    
-    /**
      * Entfernt Leben
-     * @param phealth   Leben, dass entfernt wird
+     * @param pHealth   Leben, dass entfernt wird
      */
     public void removeHealth(int pHealth) {health -= pHealth;}
 }

@@ -1,5 +1,3 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Kauficon für den Sniper-Tower
  * @author Ole, Oskar, Shikri, Timo
@@ -8,8 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Buy_Sniper_Tower extends Tower_Menu {
     /**
      * Constructor für Buy_Sniper_Tower:<br>
-     * -Setzt die Welt
-     * @param level Die Welt
+     * -Setzt den Preis
      */
     public Buy_Sniper_Tower() {
         cost = 400;

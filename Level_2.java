@@ -1,12 +1,10 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Level 2
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */
 public class Level_2 extends Level {
-    private Path[] paths = new Path[37]; //Wegobjekte
+    private final Path[] paths = new Path[37]; //Wegobjekte
 
     /**
      * Constructor für Level_2:<br>

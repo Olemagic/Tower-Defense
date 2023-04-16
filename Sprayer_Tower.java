@@ -1,5 +1,3 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Dritter Turm, schießt viele Projektile ohne Zielsuche
  * @author Ole, Oskar, Shikri, Timo

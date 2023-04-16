@@ -32,6 +32,7 @@ public class Pseudo_Towers extends GUI {
             }
             
             if(mouse.getButton()==3) {
+                getWorld().removeObject(circle);
                 getWorld().removeObject(this);
             }
         }

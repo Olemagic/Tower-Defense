@@ -5,9 +5,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1.0
  */
 public class Money extends GUI{
-    private Level world; //Die Welt
-    private int money; //Das Geld
-    private GreenfootImage image = new GreenfootImage(250, 50); //Das Bild
+    private final Level world; //Die Welt
+    private final GreenfootImage image = new GreenfootImage(250, 50); //Das Bild
     
     /**
      * Constructor für Money:<br>
@@ -33,7 +32,8 @@ public class Money extends GUI{
      * -Erstellt das neue Bild mit Icon und Text
      */
     public void update() {
-        money = world.getMoney();
+        //Das Geld
+        int money = world.getMoney();
         
         
         image.clear();
@@ -41,7 +41,7 @@ public class Money extends GUI{
         GreenfootImage heart = new GreenfootImage("money.png");
         image.drawImage(heart, 0, 0);
         
-        GreenfootImage healthtext = new GreenfootImage("" + money, 50, Color.WHITE, null, Color.BLACK);
+        GreenfootImage healthtext = new GreenfootImage(String.valueOf(money), 50, Color.WHITE, null, Color.BLACK);
         image.drawImage(healthtext, 50, 0);
         
         setImage(image);

@@ -1,5 +1,3 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Zweiter Gegner
  * @author Ole, Oskar, Shikri, Timo

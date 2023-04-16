@@ -1,10 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
+
 /**
- * Write a description of class Ice_Tower here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Turm, der Gegner einfriert
+ * @author Ole, Oskar, Shikri, Timo
+ * @version 1.0
  */
 public class Ice_Tower extends Towers
 {
@@ -34,8 +33,7 @@ public class Ice_Tower extends Towers
     }
     
     /**
-     * Dreht sich zum Gegner und spawnt ein Bullet
-     * @param target    Gegner, auf den geschossen wird
+     * Friert alle Gegner in der Reichweite ein
      */
     public void shoot() {
         List<Enemy> enemiesInRange = getObjectsInRange(range, Enemy.class);

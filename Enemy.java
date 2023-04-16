@@ -83,59 +83,49 @@ public class Enemy extends Actor {
      * Sucht den nächsten Weg und dreht sich in die Richtung
      */
     public void findNextPath() {
-        int rotation = getRotation();
-        
-        if (rotation == 0) {
-            if (getOneObjectAtOffset(100, 0, Path.class) != null) {
-            }
-            else if (getOneObjectAtOffset(0, -100, Path.class) != null) {
-                setRotation(270);
-            }
-            else if (getOneObjectAtOffset(0, 100, Path.class) != null) {
-                setRotation(90);
-            }
-            return;
-        }
-        
-        if (rotation == 90) {
-            if (getOneObjectAtOffset(0, 100, Path.class) != null) {
-            }
-            else if (getOneObjectAtOffset(100, 0, Path.class) != null) {
-                setRotation(0);
-            }
-            else if (getOneObjectAtOffset(-100, 0, Path.class) != null) {
-                setRotation(180);
-            }
-            return;
-        }
-        
-        if (rotation == 180) {
-            if (getOneObjectAtOffset(-100, 0, Path.class) != null) {
-            }
-            else if (getOneObjectAtOffset(0, 100, Path.class) != null) {
-                setRotation(90);
-            }
-            else if (getOneObjectAtOffset(0, -100, Path.class) != null) {
-                setRotation(270);
-            }
-            return;
-        }
-        
-        if (rotation == 270) {
-            if (getOneObjectAtOffset(0, -100, Path.class) != null) {
-            }
-            else if (getOneObjectAtOffset(-100, 0, Path.class) != null) {
-                setRotation(180);
-            }
-            else if (getOneObjectAtOffset(100, 0, Path.class) != null) {
-                setRotation(0);
-            }
-            return;
+        final int rotation = getRotation();
+        switch (rotation) {
+            case 0:
+                if (getOneObjectAtOffset(100, 0, Path.class) != null) return;
+                else if (getOneObjectAtOffset(0, -100, Path.class) != null) {
+                    setRotation(270);
+                }
+                else if (getOneObjectAtOffset(0, 100, Path.class) != null) {
+                    setRotation(90);
+                }
+                break;
+            case 90:
+                if (getOneObjectAtOffset(0, 100, Path.class) != null) return;
+                else if (getOneObjectAtOffset(100, 0, Path.class) != null) {
+                    setRotation(0);
+                }
+                else if (getOneObjectAtOffset(-100, 0, Path.class) != null) {
+                    setRotation(180);
+                }
+                break;
+            case 180:
+                if (getOneObjectAtOffset(-100, 0, Path.class) != null) return;
+                else if (getOneObjectAtOffset(0, 100, Path.class) != null) {
+                    setRotation(90);
+                }
+                else if (getOneObjectAtOffset(0, -100, Path.class) != null) {
+                    setRotation(270);
+                }
+                break;
+            case 270:
+                if (getOneObjectAtOffset(0, -100, Path.class) != null) return;
+                else if (getOneObjectAtOffset(-100, 0, Path.class) != null) {
+                    setRotation(180);
+                }
+                else if (getOneObjectAtOffset(100, 0, Path.class) != null) {
+                    setRotation(0);
+                }
+                break;
         }
     }
     
     /**
-     * Ändert das Bild auf das nächste in der Animation
+     * Ändert das Bild auf das Nächste in der Animation
      */
     public void updateImage() {
         setImage(enemyName + "/" + currentImage + ".png");

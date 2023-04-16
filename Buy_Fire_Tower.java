@@ -1,5 +1,3 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Kauficon für den Fire-Tower
  * @author Ole, Oskar, Shikri, Timo
@@ -8,8 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Buy_Fire_Tower extends Tower_Menu {
     /**
      * Constructor für Buy_Fire_Tower:<br>
-     * -Setzt die Welt
-     * @param level Die Welt
+     * -Setzt den Preis
      */
     public Buy_Fire_Tower() {
         cost = 200;

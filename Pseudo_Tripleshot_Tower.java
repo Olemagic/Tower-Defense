@@ -1,15 +1,12 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
- * tripleshot-Tower, der beim Platzieren der Maus folgt
+ * Tripleshot-Tower, der beim Platzieren der Maus folgt
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */
 public class Pseudo_Tripleshot_Tower extends Pseudo_Towers {
     /**
      * Constructor von Pseudo_Tripleshot_Tower:<br>
-     * -Setzt die Welt
-     * @param level Die Welt
+     * -Setzt den Preis and die Reichweite
      */
     public Pseudo_Tripleshot_Tower() {
         cost = 600;

@@ -1,5 +1,3 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Vierter Turm, schießt ohne Projektile und hat unendliche Reichweite
  * @author Ole, Oskar, Shikri, Timo

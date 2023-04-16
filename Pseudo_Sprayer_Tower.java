@@ -1,5 +1,3 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Sprayer-Tower, der beim Platzieren der Maus folgt
  * @author Ole, Oskar, Shikri, Timo
@@ -8,8 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Pseudo_Sprayer_Tower extends Pseudo_Towers {
     /**
      * Constructor von Pseudo_Sprayer_Tower:<br>
-     * -Setzt die Welt
-     * @param level Die Welt
+     * -Setzt den Preis and die Reichweite
      */
     public Pseudo_Sprayer_Tower() {
         cost = 500;

@@ -1,5 +1,3 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Vierter Gegner, spawnt zwei Monster beim Tod
  * @author Ole, Oskar, Shikri, Timo

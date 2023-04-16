@@ -1,5 +1,3 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Zweiter Turm, schießt drei Projektile mit je 10° Abstand
  * @author Ole, Oskar, Shikri, Timo

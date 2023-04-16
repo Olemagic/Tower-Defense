@@ -1,12 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Das Bullet vom Sprayer-Turm
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */
 public class Tack_Bullet extends Bullets {
-    private int lifespan = 300; //Anzahl an Pixeln, die das Bullet fliegen kann
     private int timeAlive = 0; //Zähler, wie weit das Bullet geflogen ist
     
     /**
@@ -29,6 +26,8 @@ public class Tack_Bullet extends Bullets {
     public void act() {
         super.act();
         timeAlive +=5;
+        //Anzahl an Pixeln, die das Bullet fliegen kann
+        int lifespan = 300;
         if(timeAlive >= lifespan) {
             getWorld().removeObject(this);
         }

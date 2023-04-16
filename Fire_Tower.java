@@ -1,5 +1,3 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Erster Turm, schießt einzelne Projektile
  * @author Ole, Oskar, Shikri, Timo

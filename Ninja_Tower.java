@@ -1,5 +1,3 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * schießt einzelne, zielsuchende Projektile
  * @author Ole, Oskar, Shikri, Timo

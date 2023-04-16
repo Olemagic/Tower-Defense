@@ -1,5 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.List;  // (List)
+import java.util.List;
 
 /**
  * Parent-class aller von Türmen geschossenen Projektile
@@ -11,7 +10,7 @@ public class Bullets extends SmoothMover {
     protected int pierce; //Anzahl an Gegnern, die das Projektil treffen kann
     protected Enemy[] hitEnemies; //Bereits getroffene Gegner, damit Gegner nicht mehrmals getroffen werden
     protected int currentIndex = 0; //Zähler für das Array oben
-    
+
     /**
      * Act-Methode von Bullets:<br>
      * -Bewegt das Bullet<br>
@@ -68,8 +67,7 @@ public class Bullets extends SmoothMover {
     public int getRotationToTarget(Enemy target) {
         int distanceX = target.getX() - getX();
         int distanceY = target.getY() - getY();
-        int rotation = (int) (Math.atan2(distanceY, distanceX) * 180 / Math.PI);
-        return rotation;
+        return (int) (Math.atan2(distanceY, distanceX) * 180 / Math.PI);
     }
     
     /**

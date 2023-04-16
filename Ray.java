@@ -7,8 +7,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Ray extends Actor
 {
-    private Enemy enemy; //Der Gegner
-    private Actor actor; //Der Turm/der Shuriken
+    private final Enemy enemy; //Der Gegner
+    private final Actor actor; //Der Turm/der Shuriken
     
     /**
      * Constructor von Ray:<br>
@@ -26,12 +26,11 @@ public class Ray extends Actor
      * Gibt zurück, ob der Gegner der Turm/Shuriken sehen kann<br>
      * Funktionsweise:<br>
      * -Berechnet die Länge des Rays (Entfernung zwischen Gegner und Turm/Shuriken)<br>
-     * -Berechnet den Winkel in welchem die beiden zueinander sind über Arctan<br>
+     * -Berechnet den Winkel in welchem die beiden zueinander sind über Arc-tan<br>
      * -Platziert den Ray in der Mitte und setzt die Rotation<br>
      * -Erstellt das Bild passender Länge<br>
      * -Überprüft, ob der Ray ein Obstacle berührt
-     * @return true, wenn ein Obstacle zwischen Gegner und Turm/Shuriken sind
-     * @return false, wenn kein Obstacle zwischen Gegner und Turm/Shuriken sind
+     * @return true, wenn ein Obstacle zwischen Gegner und Turm/Shuriken sind<br>false, wenn kein Obstacle zwischen Gegner und Turm/Shuriken sind
      */
     public boolean HasLOS() {
         boolean hasLOS = false;

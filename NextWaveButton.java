@@ -1,5 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.List;  // (List)
+import greenfoot.Greenfoot;
+import greenfoot.GreenfootImage;
 
 /**
  * Button zum Starten der nächsten Welle und zum Schneller-machen
@@ -10,9 +10,9 @@ public class NextWaveButton extends GUI {
     private boolean isSpeeded = false; //Geschwindigkeitszustand
     private boolean gameOver = false; //Spielzustand
     
-    private GreenfootImage playbutton = new GreenfootImage("playbutton.png"); //Bild vom Button bei keiner aktuellen Welle
-    private GreenfootImage speedbutton = new GreenfootImage("speedbutton.png"); //Bild vom Button bei Welle und nicht beschleunigt
-    private GreenfootImage speedbuttonspeeded = new GreenfootImage("speedbutton-speeded.png"); //Bild vom Button bei Welle und beschleunigt
+    private final GreenfootImage playbutton = new GreenfootImage("playbutton.png"); //Bild vom Button bei keiner aktuellen Welle
+    private final GreenfootImage speedbutton = new GreenfootImage("speedbutton.png"); //Bild vom Button bei Welle und nicht beschleunigt
+    private final GreenfootImage speedbuttonspeeded = new GreenfootImage("speedbutton-speeded.png"); //Bild vom Button bei Welle und beschleunigt
     
     /**
      * Act-Methode von NextWaveButton:<br>

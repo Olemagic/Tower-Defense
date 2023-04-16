@@ -1,7 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
- * Parentclass für alle Gegner, die beim Tod etwas ausführen
+ * Parent class für alle Gegner, die beim Tod etwas ausführen
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */

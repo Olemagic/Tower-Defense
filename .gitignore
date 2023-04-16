@@ -8,4 +8,6 @@
 
 #IntelliJ files
 /.idea
-/Tower Defense.iml
+*.iml
+/standalone.properties
+/out
