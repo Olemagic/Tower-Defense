@@ -1,4 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.Actor;
+
 /**
  * Parent-class für alle Gegner, gemeinsame Methoden und Attribute
  * @author Ole, Oskar, Shikri, Timo
@@ -8,10 +9,10 @@ public class Enemy extends Actor {
     protected int health; //Leben
     protected int damage; //Schaden beim Erreichen vom Ziel
     protected int moneyOnDeath; //Geld, welches der Gegner beim Tod fallen lässt
-    protected int speed; //Geschwindigkeit (
+    protected int speed; //Geschwindigkeit
     protected int freezeTime = 0; //übrige Frierzeit
     
-    protected String enemyName; //Name(für Animation)
+    protected String enemyName; //Name (für Animation)
     
     protected int distanceMoved = 50; //Bereits zurückgelegte Strecke
     protected int currentImage; //Zähler für Animation
@@ -19,6 +20,7 @@ public class Enemy extends Actor {
     /**
      * Act-Methode von Enemy:<br>
      * -Überprüft, ob der Gegner keine Leben mehr hat und entfernt ihn<br>
+     * -Wenn nicht gefroren:<br>
      * -Animation<br>
      * -Timing fürs Weg-finden<br>
      * -Bewegung der Gegner
@@ -47,7 +49,7 @@ public class Enemy extends Actor {
     
     /**
      * Entfernt Leben
-     * @param damage    Entfernt den Wert vom Leben
+     * @param damage Entfernt den Wert vom Leben
      */
     public void removeHealth(int damage) {health -= damage;}
     
@@ -75,7 +77,7 @@ public class Enemy extends Actor {
     
     /**
      * Setzt die zurückgelegte Strecke
-     * @param distance  Strecke, die gesetzt werden soll
+     * @param distance Strecke, die gesetzt werden soll
      */
     public void setDistanceMoved(int distance) {distanceMoved = distance;}
     

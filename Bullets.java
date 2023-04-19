@@ -1,5 +1,3 @@
-import java.util.List;
-
 /**
  * Parent-class aller von Türmen geschossenen Projektile
  * @author Ole, Oskar, Shikri, Timo
@@ -39,29 +37,9 @@ public class Bullets extends SmoothMover {
         }
     }
     
-    public Enemy getFurthestEnemyInRange(int range) {
-        List<Enemy> enemiesInRange = getObjectsInRange(range, Enemy.class);
-        if(enemiesInRange.isEmpty()) {
-            return null;
-        }
-        int max = 0;
-        Enemy farthestEnemy = null;
-        for (Enemy enemy : enemiesInRange) {
-            int currentEnemyDistanceMoved = enemy.getDistanceMoved();
-            if(max < currentEnemyDistanceMoved) {
-                if(hasLineOfSight(enemy)) {
-                    max = currentEnemyDistanceMoved;
-                    farthestEnemy = enemy;
-                }
-            }
-        }
-        
-        return farthestEnemy;
-    }
-    
     /**
      * Gibt die Rotation zu einem Gegner zurück
-     * @param target    Gegner, für den die Rotation berechnet werden soll
+     * @param target Gegner, für den die Rotation berechnet werden soll
      * @return Rotation zum Gegner
      */
     public int getRotationToTarget(Enemy target) {

@@ -1,12 +1,12 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.Actor;
+import greenfoot.GreenfootImage;
 
 /**
  * Objekt, dass erstellt wird, um zu überprüfen, ob ein Turm einen Gegner sehen kann
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */
-public class Ray extends Actor
-{
+public class Ray extends Actor {
     private final Enemy enemy; //Der Gegner
     private final Actor actor; //Der Turm/der Shuriken
     
@@ -14,8 +14,8 @@ public class Ray extends Actor
      * Constructor von Ray:<br>
      * -Setzt den Gegner<br>
      * -Setzt den Turm
-     * @param pEnemy    Der Gegner, für den überprüft wird
-     * @param pActor    Der Turm/Shuriken, für den überprüft wird
+     * @param pEnemy Der Gegner, für den überprüft wird
+     * @param pActor Der Turm/Shuriken, für den überprüft wird
      */
     public Ray(Enemy pEnemy, Actor pActor) {
         enemy = pEnemy;
@@ -59,7 +59,7 @@ public class Ray extends Actor
     
     /**
      * Erstellt das Bild
-     * @param distance  Distanz zwischen Turm und Gegner/Länge des Bildes
+     * @param distance Distanz zwischen Turm und Gegner/Länge des Bildes
      */
     public void createImage(int distance) {
         setImage(new GreenfootImage(distance, 50));

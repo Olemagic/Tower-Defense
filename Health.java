@@ -1,11 +1,12 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.Color;
+import greenfoot.GreenfootImage;
 
 /**
  * Lebensanzeige in der Welt
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */
-public class Health extends GUI{
+public class Health extends GUI {
     private final Level world; //Die Welt
     private final GreenfootImage image = new GreenfootImage(150, 50); //Das Bild
     

@@ -33,7 +33,7 @@ public class Fire_Tower extends Towers {
     
     /**
      * Dreht sich zum Gegner und spawnt ein Bullet
-     * @param target    Gegner, auf den geschossen wird
+     * @param target Gegner, auf den geschossen wird
      */
     public void shoot(Enemy target) {
         int rotation = getRotationToTarget(target);

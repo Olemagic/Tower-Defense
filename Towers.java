@@ -1,5 +1,6 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.List;  // (List)
+import greenfoot.Actor;
+
+import java.util.List;
 
 /**
  * Parent-class aller Türme
@@ -39,7 +40,7 @@ public class Towers extends Actor {
     
     /**
      * Gibt die Rotation zu einem Gegner zurück
-     * @param target    Gegner, für den die Rotation berechnet werden soll
+     * @param target Gegner, für den die Rotation berechnet werden soll
      * @return Rotation zum Gegner
      */
     public int getRotationToTarget(Enemy target) {

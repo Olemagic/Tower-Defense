@@ -11,8 +11,8 @@ public class Shuriken extends Bullets {
      * Constructor für Shuriken:<br>
      * -Legt die Rotation, den Schaden und Pierce fest<br>
      * -Deklariert die Länge des Arrays hitEnemies
-     * @param pRotation  Rotation des Bullets
-     * @param pDamage   Schaden, den das Bullet an Gegnern macht
+     * @param pRotation Rotation des Bullets
+     * @param pDamage Schaden, den das Bullet an Gegnern macht
      */
     public Shuriken(int pRotation, int pDamage) {
         setRotation(pRotation);
@@ -43,7 +43,7 @@ public class Shuriken extends Bullets {
     
     /**
      * Gibt die Distanz zwischen einem Gegner und dem Shuriken zurück
-     * @param target    Der Gegner
+     * @param target Der Gegner
      * @return Die Entfernung
      */
     public double getDistance(Enemy target) {

@@ -1,10 +1,12 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.Color;
+import greenfoot.GreenfootImage;
+
 /**
  * Geldanzeige in der Welt
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */
-public class Money extends GUI{
+public class Money extends GUI {
     private final Level world; //Die Welt
     private final GreenfootImage image = new GreenfootImage(250, 50); //Das Bild
     

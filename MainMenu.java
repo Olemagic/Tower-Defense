@@ -1,5 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.Greenfoot;
+import greenfoot.World;
 /**
  * Mainmenu zur Auswahl des Levels
  * @author Ole, Oskar, Shikri, Timo

@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.Actor;
 
 /**
  * Obstacle class: Platziert, um die Sicht eines Turmes einzuschränken

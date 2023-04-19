@@ -1,11 +1,17 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.Color;
+import greenfoot.GreenfootImage;
 
 /**
- * Parent-class für das GUI
+ * Class, die verwendet werden kann, um einen Kreis in die Welt zu zeichnen
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */
 public class Circle extends GUI {
+    /**
+     * Constructor von Circle:<br>
+     * -Zeichnet einen Kreis mit der angegebenen Größe
+     * @param size Größe des Kreises (Durchmesser)
+     */
     public Circle(int size) {
         GreenfootImage image = new GreenfootImage(size, size);
         

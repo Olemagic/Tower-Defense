@@ -1,4 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.Greenfoot;
+import greenfoot.GreenfootImage;
+import greenfoot.World;
+
 /**
  * Parent-class für alle Level, gemeinsame Methoden und Attribute
  * @author Ole, Oskar, Shikri, Timo
@@ -11,7 +14,7 @@ public class Level extends World {
     protected NextWaveButton nextWaveButton = new NextWaveButton(); //Button zum Starten
     protected Health healthicon; //Lebensanzeige
     protected Money moneyicon; //Geldanzeige
-    protected Tower_Menu_Placeholder towermenuplaceholder;
+    protected Tower_Menu_Placeholder towermenuplaceholder; //Leerer Block über dem Menü
     
     protected Buy_Tower[] towericons = {new Buy_Tower("Fire"), new Buy_Tower("Tripleshot"), new Buy_Tower("Sprayer"), new Buy_Tower("Sniper"), new Buy_Tower("Ninja"), new Buy_Tower("Ice")}; //Array mit allen Towericons
     
@@ -105,13 +108,13 @@ public class Level extends World {
 
     /**
      * Fügt Geld hinzu
-     * @param pMoney    Geld, dass hinzugefügt wird
+     * @param pMoney Geld, dass hinzugefügt wird
      */
     public void addMoney(int pMoney) {money += pMoney;}
     
     /**
      * Entfernt Geld
-     * @param pMoney    Geld, dass entfernt wird
+     * @param pMoney Geld, dass entfernt wird
      */
     public void removeMoney(int pMoney) {money -= pMoney;}
     
@@ -120,16 +123,10 @@ public class Level extends World {
      * @return aktuelle Leben
      */
     public int getHealth() {return health;}
-    
-    /**
-     * Setzt Leben
-     * @param pHealth   Neuer Wert
-     */
-    public void setHealth(int pHealth) {health = pHealth;}
-    
+
     /**
      * Entfernt Leben
-     * @param pHealth   Leben, dass entfernt wird
+     * @param pHealth Leben, dass entfernt wird
      */
     public void removeHealth(int pHealth) {health -= pHealth;}
 }

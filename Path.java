@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.Actor;
 
 /**
  * Path class: Platziert, damit Gegner den Weg zum Ziel finden

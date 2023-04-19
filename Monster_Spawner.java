@@ -1,8 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.List;  // (List)
-import java.util.Map;   // (Map)
-import java.util.ArrayList; // (ArrayList)
-import java.util.HashMap;   // (HashMap)
+import greenfoot.Actor;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Objekt, dass die Monster in die Welt spawnt
@@ -14,16 +15,17 @@ public class Monster_Spawner extends Actor {
     private final int spawnY; //Y-Koordinate des Spawnpunkts
     private final int spawnRotation; //Drehung für Spawnpunkte, die nicht am linken Rand sind
     private boolean gameOver = false; //Spielzustand
-    private boolean onetick = true;
+    private boolean endOfRoundMoney = true; //Geld am Ende der Runde
     
     private boolean waveTimeOut = true; //Welle aktiv
     private int currentWave = -1; //Aktuelle Welle
     
     /**
-     * Waveconfig im Format: {
-     * Welle 1: {{totaldelay, number, spawndelay}(Monster), {totaldelay, number, spawndelay}(Tank), {totaldelay, number, spawndelay}(Speed), {totaldelay, number, spawndelay}(BigTank)},
-     * Welle 2: {{totaldelay, number, spawndelay}(Monster), {totaldelay, number, spawndelay}(Tank), {totaldelay, number, spawndelay}(Speed), {totaldelay, number, spawndelay}(BigTank)},
-     * Welle 3: {{totaldelay, number, spawndelay}(Monster), {totaldelay, number, spawndelay}(Tank), {totaldelay, number, spawndelay}(Speed), {totaldelay, number, spawndelay}(BigTank)},
+     * Waveconfig im Format: {<br>
+     * Welle 1: {{totaldelay, number, spawndelay}(Monster), {totaldelay, number, spawndelay}(Tank), {totaldelay, number, spawndelay}(Speed), {totaldelay, number, spawndelay}(BigTank)},<br>
+     * Welle 2: {{totaldelay, number, spawndelay}(Monster), {totaldelay, number, spawndelay}(Tank), {totaldelay, number, spawndelay}(Speed), {totaldelay, number, spawndelay}(BigTank)},<br>
+     * Welle 3: {{totaldelay, number, spawndelay}(Monster), {totaldelay, number, spawndelay}(Tank), {totaldelay, number, spawndelay}(Speed), {totaldelay, number, spawndelay}(BigTank)}}<br>
+     * ...
      */
     private final int[][][] waveConfig = {
     {{12000, 20, 200}, {4000, 40, 100}, {8000, 200, 20}, {0, 20, 200}},
@@ -70,7 +72,7 @@ public class Monster_Spawner extends Actor {
     /**
      * Act-Methode von Monster_Spawner:<br>
      * -Wenn Welle aktiv: Spawnt eventuell Monster<br>
-     * -Wenn keine Welle aktiv: Setzt das Bild vom Wavebutton zurück
+     * -Wenn keine Welle aktiv: Setzt das Bild vom Wavebutton zurück und gibt Geld am Ende der Runde
      */
     public void act() {
         if(!waveTimeOut && !gameOver) {
@@ -91,9 +93,9 @@ public class Monster_Spawner extends Actor {
                 ((Level) getWorld()).win();
                 gameOver = true;
             }
-            if(onetick && currentWave !=-1) {
+            if(endOfRoundMoney && currentWave !=-1) {
                 ((Level) getWorld()).addMoney(500);
-                onetick = false;
+                endOfRoundMoney = false;
             }
             getWorld().getObjects(NextWaveButton.class).get(0).resetImage();
             MonsterTotalDelay = 0;
@@ -144,7 +146,7 @@ public class Monster_Spawner extends Actor {
      */
     public void disableTimeOut() {
         waveTimeOut = false;
-        onetick = true;
+        endOfRoundMoney = true;
         if (currentWave < numberOfWaves - 1) currentWave++;
     }
     

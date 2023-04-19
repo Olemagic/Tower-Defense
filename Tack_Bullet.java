@@ -10,8 +10,8 @@ public class Tack_Bullet extends Bullets {
      * Constructor für Tack_Bullet:<br>
      * -Legt die Rotation, den Schaden und Pierce fest<br>
      * -Deklariert die Länge des Arrays hitEnemies
-     * @param rotation  Rotation des Bullets
-     * @param pDamage   Schaden, den das Bullet an Gegnern macht
+     * @param rotation Rotation des Bullets
+     * @param pDamage Schaden, den das Bullet an Gegnern macht
      */
     public Tack_Bullet(int rotation, int pDamage) {
         setRotation(rotation);
@@ -25,9 +25,8 @@ public class Tack_Bullet extends Bullets {
      */
     public void act() {
         super.act();
-        timeAlive +=5;
-        //Anzahl an Pixeln, die das Bullet fliegen kann
-        int lifespan = 300;
+        timeAlive++;
+        int lifespan = 60; //Anzahl der Acts, die das Bullet leben darf
         if(timeAlive >= lifespan) {
             getWorld().removeObject(this);
         }

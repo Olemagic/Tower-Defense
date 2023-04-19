@@ -1,5 +1,6 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.List;  // (List)
+import greenfoot.Actor;
+
+import java.util.List;
 
 /**
  * Finishobjekt, überprüft, ob ein Gegner am Ziel ist

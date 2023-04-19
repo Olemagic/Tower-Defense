@@ -5,8 +5,7 @@ import java.util.List;
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */
-public class Ice_Tower extends Towers
-{
+public class Ice_Tower extends Towers {
     /**
      * Constructor für Ice_Tower:<br>
      * -Setzt Range, Nachladezeit und Schaden

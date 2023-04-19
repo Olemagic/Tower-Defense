@@ -33,7 +33,7 @@ public class Tripleshot_Tower extends Towers {
     
     /**
      * Dreht sich zum Gegner und spawnt drei Bullets mit Abstand 10°
-     * @param target    Gegner, auf den geschossen wird
+     * @param target Gegner, auf den geschossen wird
      */
     public void shoot(Enemy target) {
         int rotation = getRotationToTarget(target);

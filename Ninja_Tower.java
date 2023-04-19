@@ -1,5 +1,5 @@
 /**
- * schießt einzelne, zielsuchende Projektile
+ * Schießt einzelne, zielsuchende Projektile
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */
@@ -33,7 +33,7 @@ public class Ninja_Tower extends Towers {
     
     /**
      * Dreht sich zum Gegner und spawnt einen Shuriken
-     * @param target    Gegner, auf den geschossen wird
+     * @param target Gegner, auf den geschossen wird
      */
     public void shoot(Enemy target) {
         int rotation = getRotationToTarget(target);
