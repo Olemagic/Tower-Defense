@@ -6,6 +6,10 @@ import greenfoot.Greenfoot;
  * @version 1.0
  */
 public class Screen extends GUI {
+    /**
+     * Act-Methode von Screen:<br>
+     * -Wenn angeklickt wird das Mainmenu geöffnet
+     */
     public void act() {
         if (Greenfoot.mouseClicked(this)) {
             Greenfoot.setWorld(new MainMenu());

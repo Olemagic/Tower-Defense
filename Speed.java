@@ -6,7 +6,7 @@
     public class Speed extends Enemy {
     /**
      * Constructor für Speed:<br>
-     * -Setzt Leben, Schaden und Namen
+     * -Setzt Leben, Schaden, Geschwindigkeit, Todesgeld und Namen
      */
     public Speed() {
         //config

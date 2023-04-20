@@ -8,7 +8,7 @@ import greenfoot.GreenfootImage;
  */
 public class Ray extends Actor {
     private final Enemy enemy; //Der Gegner
-    private final Actor actor; //Der Turm/der Shuriken
+    private final Actor actor; //Der Turm/Der Shuriken
     
     /**
      * Constructor von Ray:<br>
@@ -23,7 +23,7 @@ public class Ray extends Actor {
     }
     
     /**
-     * Gibt zurück, ob der Gegner der Turm/Shuriken sehen kann<br>
+     * Gibt zurück, ob der Turm/Shuriken den Gegner sehen kann<br>
      * Funktionsweise:<br>
      * -Berechnet die Länge des Rays (Entfernung zwischen Gegner und Turm/Shuriken)<br>
      * -Berechnet den Winkel in welchem die beiden zueinander sind über Arc-tan<br>

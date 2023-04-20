@@ -10,7 +10,7 @@ import greenfoot.World;
 public class Level extends World {
     protected Start start = new Start(); //Spawnpunkt
     protected Finish finish = new Finish(); //Ziel
-    protected Monster_Spawner monsterSpawner; //Klasse zum spawnen von Monstern
+    protected Monster_Spawner monsterSpawner; //Klasse zum Spawnen von Monstern
     protected NextWaveButton nextWaveButton = new NextWaveButton(); //Button zum Starten
     protected Health healthicon; //Lebensanzeige
     protected Money moneyicon; //Geldanzeige
@@ -25,7 +25,8 @@ public class Level extends World {
     /**
      * Constructor für Level:<br>
      * -Setzt Weltgröße auf 1600x900<br>
-     * -Setzt Speed auf 50
+     * -Setzt Speed auf 50<br>
+     * -Legt die Reihenfolge der Objekte fest
      */
     public Level() {    
         super(1600, 900, 1); 
@@ -55,7 +56,7 @@ public class Level extends World {
     
     /**
      * Act-Methode:<br>
-     * -Überprüft, ob noch Leben vorhanden sind und ruft sonst lose-Methode auf
+     * -Überprüft, ob noch Leben vorhanden sind und ruft lose-Methode auf
      */
     public void act() {
         if (!gameOver && health < 1) {

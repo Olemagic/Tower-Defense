@@ -2,7 +2,7 @@ import greenfoot.Greenfoot;
 import greenfoot.MouseInfo;
 
 /**
- * Parent-class aller Pseudo-Towers
+ * Tower, der vom Shop gespawnt wird und der Maus folgt
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */
@@ -88,6 +88,11 @@ public class Pseudo_Tower extends GUI {
         }
     }
     
+    /**
+     * Erstellt einen Kreis, der die Reichweite des Turms anzeigt
+     * @param x X-Koordinate
+     * @param y Y-Koordinate
+     */
     public void addCircle(int x, int y) {
         circle = new Circle(range*2);
         getWorld().addObject(circle, x, y);

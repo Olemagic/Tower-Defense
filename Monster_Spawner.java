@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Objekt, dass die Monster in die Welt spawnt
+ * Objekt, dass die Monster in die Welt spawnt<br>
+ * Man sollte statt der Hashmap einfach das Array verwenden, wäre einfacher
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */
@@ -28,9 +29,16 @@ public class Monster_Spawner extends Actor {
      * ...
      */
     private final int[][][] waveConfig = {
-    {{12000, 20, 200}, {4000, 40, 100}, {8000, 200, 20}, {0, 20, 200}},
-    {{12000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 100, 40}},
-    {{12000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 20, 200}}};
+    {{2000, 20, 200}, {4000, 40, 100}, {8000, 200, 20}, {0, 20, 200}},
+    {{2000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 150, 40}},
+    {{2000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 20, 200}},
+    {{2000, 40, 200}, {4000, 40, 100}, {8000, 200, 20}, {0, 20, 200}},
+    {{2000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 100, 40}},
+    {{2000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 20, 200}},
+    {{2000, 20, 200}, {4000, 40, 100}, {8000, 200, 20}, {0, 20, 200}},
+    {{2000, 200, 10}, {700, 600, 20}, {6000, 10, 5}, {0, 100, 40}},
+    {{2000, 200, 10}, {700, 200, 20}, {6000, 10, 5}, {0, 20, 200}},
+    {{2000, 200, 10}, {700, 400, 20}, {6000, 10, 5}, {0, 20, 200}}};
     
     private final int numberOfWaves = waveConfig.length; //Anzahl der Wellen
     
@@ -114,7 +122,7 @@ public class Monster_Spawner extends Actor {
      */
     public void waveconfig() {
         
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < numberOfWaves; i++) {
             List<Map<String, Integer>> row = new ArrayList<>();
             for (int j = 0; j < 4; j++) {
                 row.add(new HashMap<>());

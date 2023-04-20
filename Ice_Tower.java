@@ -18,7 +18,7 @@ public class Ice_Tower extends Towers {
     }
     
     /**
-     * Act-Methode von Fire_Tower:<br>
+     * Act-Methode von Ice_Tower:<br>
      * -Implementiert Nachladezeit<br>
      * -Schießt, wenn ein Gegner vorhanden ist und geschossen werden kann
      */

@@ -1,7 +1,7 @@
 import java.util.List;
 
 /**
- * Das normale Bullet
+ * Bullet, dass Gegnern folgt
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */

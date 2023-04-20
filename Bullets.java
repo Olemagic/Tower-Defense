@@ -31,9 +31,7 @@ public class Bullets extends SmoothMover {
             currentIndex++;
             hitEnemy.removeHealth(damage);
             pierce--;
-            if(pierce==0) {
-                getWorld().removeObject(this);
-            }
+            if(pierce==0) getWorld().removeObject(this);
         }
     }
     

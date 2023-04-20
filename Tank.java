@@ -6,7 +6,7 @@
 public class Tank extends Enemy {
     /**
      * Constructor für Tank:<br>
-     * -Setzt Leben, Schaden und Namen
+     * -Setzt Leben, Schaden, Geschwindigkeit, Todesgeld und Namen
      */
     public Tank() {
         //config

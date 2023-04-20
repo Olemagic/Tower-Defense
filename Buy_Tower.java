@@ -2,7 +2,7 @@ import greenfoot.Greenfoot;
 import greenfoot.MouseInfo;
 
 /**
- * Parent-class aller Buy-Towers
+ * Turm im Shopmenü
  * @author Ole, Oskar, Shikri, Timo
  * @version 1.0
  */

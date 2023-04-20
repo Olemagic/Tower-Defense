@@ -58,7 +58,7 @@ public class Enemy extends Actor {
      */
     public void isDead() {
         if (health <= 0) {
-            ((Level) getWorld()).addMoney(20);
+            ((Level) getWorld()).addMoney(moneyOnDeath);
             getWorld().removeObject(this);
         }
     }

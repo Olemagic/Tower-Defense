@@ -6,7 +6,7 @@
 public class Monster extends Enemy {
     /**
      * Constructor für Monster:<br>
-     * -Setzt Leben, Schaden und Namen
+     * -Setzt Leben, Schaden, Geschwindigkeit, Todesgeld und Namen
      */
     public Monster() {
         //config

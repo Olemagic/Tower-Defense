@@ -6,7 +6,7 @@
 public class BigTank extends OnDeathEnemy {
     /**
      * Constructor für BigTank:<br>
-     * -Setzt Leben, Schaden und Namen
+     * -Setzt Leben, Schaden, Geschwindigkeit, Todesgeld und Namen
      */
     public BigTank() {
         //config
