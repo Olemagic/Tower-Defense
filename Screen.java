@@ -12,6 +12,8 @@ public class Screen extends GUI {
      */
     public void act() {
         if (Greenfoot.mouseClicked(this)) {
+            ((Level) getWorld()).getMusic().stop();
+
             Greenfoot.setWorld(new MainMenu());
         }
     }

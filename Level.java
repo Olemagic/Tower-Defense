@@ -1,5 +1,6 @@
 import greenfoot.Greenfoot;
 import greenfoot.GreenfootImage;
+import greenfoot.GreenfootSound;
 import greenfoot.World;
 
 /**
@@ -12,8 +13,10 @@ public class Level extends World {
     protected Finish finish = new Finish(); //Ziel
     protected Monster_Spawner monsterSpawner; //Klasse zum Spawnen von Monstern
     protected NextWaveButton nextWaveButton = new NextWaveButton(); //Button zum Starten
+    protected SoundButton soundButton = new SoundButton(); //Button zum Ein-/Ausschalten der Musik
     protected Health healthicon; //Lebensanzeige
     protected Money moneyicon; //Geldanzeige
+    protected GreenfootSound music; //Hintergrundmusik
     protected Tower_Menu_Placeholder towermenuplaceholder; //Leerer Block über dem Menü
     
     protected Buy_Tower[] towericons = {new Buy_Tower("Fire"), new Buy_Tower("Tripleshot"), new Buy_Tower("Sprayer"), new Buy_Tower("Sniper"), new Buy_Tower("Ninja"), new Buy_Tower("Ice")}; //Array mit allen Towericons
@@ -38,6 +41,10 @@ public class Level extends World {
      * Prepare-Methode für Levelaufbau, der erst aufgerufen werden kann, nachdem der Weg aufgebaut ist
      */
     public void prepare() {
+        music = new GreenfootSound("Background.mp3");
+        music.setVolume(40);
+        music.playLoop();
+
         monsterSpawner = new Monster_Spawner(start);
         healthicon = new Health(this);
         moneyicon = new Money(this);
@@ -45,6 +52,7 @@ public class Level extends World {
         
         addObject(monsterSpawner, 0, 0);
         addObject(nextWaveButton, 1550, 850);
+        addObject(soundButton, 1450, 850);
         addObject(healthicon, 80, 25);
         addObject(moneyicon, 260, 25);
         addObject(towermenuplaceholder, 800, 850);
@@ -52,6 +60,9 @@ public class Level extends World {
         for (int i = 0; i < towericons.length; i++) {
             addObject(towericons[i], i*100+50, 850);
         }
+
+        nextWaveButton.resetImage();
+        soundButton.resetImage();
     }
     
     /**
@@ -61,6 +72,7 @@ public class Level extends World {
     public void act() {
         if (!gameOver && health < 1) {
             health = 0;
+            healthicon.update();
             gameOver = true;
             lose();
         }
@@ -76,9 +88,16 @@ public class Level extends World {
         screen.setImage(new GreenfootImage("Win.png"));
 
         nextWaveButton.setGameOver();
+        soundButton.setGameOver();
         for(Buy_Tower currentIcon : towericons) {
             currentIcon.setGameOver();
         }
+
+        for (int i = 29; i > 0; i--) {
+            music.setVolume(i);
+            Greenfoot.delay(5);
+        }
+        music.stop();
     }
     
     /**
@@ -99,6 +118,12 @@ public class Level extends World {
         for(Buy_Tower currentIcon : towericons) {
             currentIcon.setGameOver();
         }
+
+        for (int i = 29; i > 0; i--) {
+            music.setVolume(i);
+            Greenfoot.delay(5);
+        }
+        music.stop();
     }
     
     /**
@@ -130,4 +155,10 @@ public class Level extends World {
      * @param pHealth Leben, dass entfernt wird
      */
     public void removeHealth(int pHealth) {health -= pHealth;}
+
+    /**
+     * Gibt die Hintergrundmusik zurück
+     * @return Hintergrundmusik
+     */
+    public GreenfootSound getMusic() {return music;}
 }

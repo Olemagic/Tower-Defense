@@ -19,6 +19,7 @@ class.Obstacle.image=burlap.jpg
 class.Path.image=empty_100x100.png
 class.Shuriken.image=Shuriken.png
 class.Sniper_Tower.image=Sniper_Tower.png
+class.SoundButton.image=soundon.png
 class.Speed.image=Enemy-3.png
 class.Sprayer_Tower.image=Sprayer_Tower.png
 class.Start.image=empty_100x5.png
