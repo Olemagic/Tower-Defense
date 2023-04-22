@@ -82,6 +82,9 @@ public class Level extends World {
      * Wird bei Sieg aufgerufen
      */
     public void win() {
+        removeObjects(getObjects(Pseudo_Tower.class));
+        removeObjects(getObjects(Circle.class));
+
         Screen screen = new Screen();
         addObject(screen, 800, 450);
         
@@ -106,9 +109,10 @@ public class Level extends World {
     public void lose() {
         monsterSpawner.enableTimeout();
         
-        for (Enemy enemy : getObjects(Enemy.class)) {
-            removeObject(enemy);
-        }
+        removeObjects(getObjects(Enemy.class));
+
+        removeObjects(getObjects(Pseudo_Tower.class));
+        removeObjects(getObjects(Circle.class));
         
         Screen screen = new Screen();
         addObject(screen, 800, 450);

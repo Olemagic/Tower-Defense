@@ -10,7 +10,7 @@ public class BigTank extends OnDeathEnemy {
      */
     public BigTank() {
         //config
-        health = 20;
+        health = 15;
         damage = 10;
         speed = 1;
         moneyOnDeath = 10;

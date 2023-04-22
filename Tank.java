@@ -10,8 +10,8 @@ public class Tank extends Enemy {
      */
     public Tank() {
         //config
-        health = 5;
-        damage = 2;
+        health = 10;
+        damage = 5;
         moneyOnDeath = 20;
         speed = 1;
         enemyName = "Enemy-2";

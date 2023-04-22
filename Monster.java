@@ -10,8 +10,8 @@ public class Monster extends Enemy {
      */
     public Monster() {
         //config
-        health = 1;
-        damage = 1;
+        health = 2;
+        damage = 2;
         speed = 1;
         moneyOnDeath = 10;
         enemyName = "Enemy-1";
