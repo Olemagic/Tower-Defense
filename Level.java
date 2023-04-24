@@ -50,7 +50,7 @@ public class Level extends World {
         moneyicon = new Money(this);
         towermenuplaceholder = new Tower_Menu_Placeholder();
         
-        addObject(monsterSpawner, 0, 0);
+        addObject(monsterSpawner, 1565, 25);
         addObject(nextWaveButton, 1550, 850);
         addObject(soundButton, 1450, 850);
         addObject(healthicon, 80, 25);

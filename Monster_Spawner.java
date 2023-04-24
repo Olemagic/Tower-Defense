@@ -1,4 +1,6 @@
 import greenfoot.Actor;
+import greenfoot.Color;
+import greenfoot.GreenfootImage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -75,6 +77,7 @@ public class Monster_Spawner extends Actor {
         spawnRotation = start.getRotation() + 90;
         
         waveconfig();
+        updateImage();
     }
     
     /**
@@ -156,6 +159,7 @@ public class Monster_Spawner extends Actor {
         waveTimeOut = false;
         endOfRoundMoney = true;
         if (currentWave < numberOfWaves - 1) currentWave++;
+        updateImage();
     }
     
     /**
@@ -163,6 +167,18 @@ public class Monster_Spawner extends Actor {
      */
     public void enableTimeout() {
         waveTimeOut = true;
+    }
+    
+    /**
+     * Setzt das Bild auf Text mit der aktuellen Welle
+     */
+    public void updateImage() {
+        GreenfootImage image = new GreenfootImage(100, 50);
+        
+        GreenfootImage healthtext = new GreenfootImage(currentWave+1 + "/10", 50, Color.WHITE, null, Color.BLACK);
+        image.drawImage(healthtext, 0, 0);
+        
+        setImage(image);
     }
     
     /**

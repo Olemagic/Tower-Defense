@@ -14,7 +14,7 @@ public class monsterBullet extends Bullets {
     public monsterBullet(int rotation, int pDamage) {
         setRotation(rotation);
         damage = pDamage;
-        pierce = 1;
+        pierce = 1; //config; 1: disabled
         hitEnemies = new Enemy[pierce];
     }
 }

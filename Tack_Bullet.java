@@ -16,7 +16,7 @@ public class Tack_Bullet extends Bullets {
     public Tack_Bullet(int rotation, int pDamage) {
         setRotation(rotation);
         damage = pDamage;
-        pierce = 3;
+        pierce = 3; //config; 1: disabled
         hitEnemies = new Enemy[pierce];
     }
     

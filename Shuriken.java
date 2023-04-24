@@ -17,7 +17,7 @@ public class Shuriken extends Bullets {
     public Shuriken(int pRotation, int pDamage) {
         setRotation(pRotation);
         damage = pDamage;
-        pierce = 3;
+        pierce = 3; //config; 1: disabled
         hitEnemies = new Enemy[pierce];
     }
     
